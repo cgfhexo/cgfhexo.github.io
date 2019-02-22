@@ -300,8 +300,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/搭建博客/" itemprop="url" rel="index">
-                    <span itemprop="name">搭建博客</span>
+                  <a href="/categories/搭建博客教程/" itemprop="url" rel="index">
+                    <span itemprop="name">搭建博客教程</span>
                   </a>
                 </span>
 
@@ -338,7 +338,8 @@
 
       
         
-          <p>1-安装hexo前需要安装：Git   node</p>
+          
+            <h3 id="hexo博客教程"><a href="#hexo博客教程" class="headerlink" title="hexo博客教程"></a>hexo博客教程</h3><p><img src="http://b.hiphotos.baidu.com/image/pic/item/14ce36d3d539b600a37a8dd9e250352ac65cb72c.jpg" alt><br>1-安装hexo前需要安装：Git   node</p>
 <p>2-进入 hexo官网：<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">https://hexo.io/zh-cn/</a></p>
 <p>3-在hexo官网首页中复制：npm install hexo-cli -g<br>注意/该代码是在git中执行/在自己喜欢的分盘或者桌面创建一个文件夹打开gitbash粘贴/执行后需要等待一段时间</p>
 <p>4-再次执行：hexo init<br>执行完该文件后退出gitbash 因为已经在文件中生成了文件 在自己创建的文件中再次打开gitbash 执行: hexo s</p>
@@ -367,31 +368,29 @@
 <pre><code>- 导航  这两个东西是是标签页显示的东西
 - 分享
 </code></pre><p>  4 categories: 前端 这个前端是在分类页面显示的东西<br>  5  正文需要在 — 这三个横线下开始书写<br>  6 #一级标题<br>  7 ## 二级标题</p>
-<p>17-修改正文 - 主要使用markdown语法</p>
-<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><ul>
-<li>列表1</li>
-<li>列表2<br>子列表1<br>子列表2</li>
-<li><p>列表3</p>
-<p>点击链接: <a href="http://www.baidu.com" target="_blank" rel="noopener">单击链接</a></p>
-<p>插入图片: <img src="图片路径" alt="图片"></p>
-<p>斜字体:   <em>斜字体</em></p>
-<p>字体加粗:  <strong>加粗字体</strong></p>
-<p>引入代码行: <code>&lt;html&gt;&lt;/html&gt;</code></p>
-<p>引入代码块:  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> &lt;head&gt;</span><br><span class="line">   &lt;title&gt;标题&lt;/title&gt;</span><br><span class="line"> &lt;/head&gt;</span><br><span class="line"> &lt;body&gt;&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p>引用别人的文章: &gt;我的内容是引入的</p>
-<p>一条虚线: —</p>
-<p>设置下面的那部分不显示出来: 出现一个阅读全文按钮:
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/02/22/搭建博客/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<p>18-开启文章的打赏 </p>
+<p>  打开next的配置文件<br>  ctrl+f 搜索 Reward<br>  把下面三个的前面#号去掉<br>    reward_comment: 你的支持就是我最大的动力<br>    wechatpay: /images/….  微信支付二维码<br>    alipay:  /images/….    支付宝二维码</p>
+<p>19-开启订阅公众号</p>
+<p>  打开next配置文件<br>  搜索: wechat_subscriber:<br>  把wechat enabled qcode description 前面的#去掉<br>  qcode 是二维码图片<br>  description 对这个订阅的描述: 扫一扫上面的二维码可以关注我哦 </p>
+<p>20-设置头像为园形鼠标移上头像可旋转</p>
+<p>  打开next根目录上的 source css _common components sidebar 打开sidebar-author.styl<br>  在.site-author-image {<br>    添加css样式:  border-radius: 50%;  transition: 2s all;<br>  }</p>
+<p>  在给.site-author-image添加一个移动事件<br>  .site-author-image:hover { transform:rotate(360deg); }</p>
+<p>21-在首页设置阅读全文</p>
+<p>   打开next配置文件<br>   搜索：auto_excerpt<br>   enable: 把false改成true<br>   length: 设置的高度 </p>
+<p>22-给主题添加动态背景</p>
+<p>  打开next配置文件<br>  搜索：canvas<br>  下面有四个false 这四个false代表四个不同的动态样式 喜欢那个样式就把那个的样式设置成true </p>
+<p>23-给博客的左上角和右上角添加fork Github    </p>
+<p>  打开 GitHub Corners网站: <a href="http://tholman.com/github-corners/" target="_blank" rel="noopener">http://tholman.com/github-corners/</a><br>  复制一个你喜欢的样式 链接<br>  打开next 里面的layout 打开 _layout.swig文件<br>  去到23行的<div class="headband"></div> 在这一行的下面添加刚刚复制的那个链接<br>  把复制的那个链接GitHub地址改成自己的 href=”” 在这修改<br>  回到首页刷新 没生效 就得去git ctrl+c 关闭服务器<br>   hexo clear 清理缓存<br>   hexo g 生成文件<br>   hexo s 开启服务器</p>
+<p>24-valine评论系统</p>
+<p>25-添加-加载效果<br>在next目录下打开 - 搜索 - pace - 把pace的false改成true<br>在下面有这行pace_theme: pace-theme-corner-indicator  这行是你选择的是哪一个效果的代码</p>
+<p>26-g把hexo部署到github上<br>1- 配置git-bash的用户名和邮件 -  git config –global user.name xxx  -  git config –global user.email xxx<br>2- 在github上创建存储库<br>3- 在存储库上的存储库名称一定要和你的github登录名一样后面的github.io是大家都一样的 : </p>
+<p>4- 然后点击创建存储库<br>5- 设置一个秘钥 - 在gitbash中输入:  ssh-keygen -t rsa -C <a href="mailto:&#39;CGFeng-Email@qq.com" target="_blank" rel="noopener">&#39;CGFeng-Email@qq.com</a>‘  - 回车<br>     然后在下面的指示中找到给出的文件位置 拿到秘钥<br>6- 在秘钥的指定地点打开 id_rsa.pub - 全选 -复制<br>7- 回到github中 打开设置 - 选择 SSH and GPG keys 创建秘钥 - 把刚刚复制到的秘钥粘贴到里面<br>8- 测试 本地的hexo和github是否关联成功: 打开gitbash - 输入 :  ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a> 回车 - 按下面的执行 选择yes<br>然后就会提示：Hi CGFeng-Email! You’ve successfully authenticated, but GitHub does not provide shell access. 说明关联成功<br>9- 打开 hexo 配置文件 拉倒底部 - 添加<br>type: git<br>repo: <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:CGFeng-Email/cgfeng-email.github.com.git  注意：这个是刚刚创建的存储库链接<br>branch: master  保存退出<br>10- 打开git-bash<br>       输入:<br>              hexo g   这是生成文件<br>              hexo d   这是部署文件到github存储库 / 有些人这里会报错<br>              如果 hexo d 报错 则 执行： $ npm install hexo-deployer-git –saveg</p>
+<p>更新<br>hexo clear<br>hexo g<br>hexo d</p>
+
+          
         
       
-    </p></li></ul></div>
+    </div>
     
     
     
