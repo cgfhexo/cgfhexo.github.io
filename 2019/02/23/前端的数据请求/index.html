@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="CGFeng">
 <meta property="og:description" content="jQuery中ajax get/post请求的语法作用 ：异步的动态网站交互应用技术 无刷新的情况下 实现数据的交互 jQuery提供Ajax封装$.get() 以GET方式发起Ajax请求 只能发送get请求  只有4个参数1 - url 必填项 规定将请求发送到那个URL2 - data 可选 规定连同请求发送到服务器的数据 参数的意思3 - success 可选规定当请求成功时运行的函数4">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-23T10:28:38.783Z">
+<meta property="og:updated_time" content="2019-02-23T10:31:30.977Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端的数据请求">
 <meta name="twitter:description" content="jQuery中ajax get/post请求的语法作用 ：异步的动态网站交互应用技术 无刷新的情况下 实现数据的交互 jQuery提供Ajax封装$.get() 以GET方式发起Ajax请求 只能发送get请求  只有4个参数1 - url 必填项 规定将请求发送到那个URL2 - data 可选 规定连同请求发送到服务器的数据 参数的意思3 - success 可选规定当请求成功时运行的函数4">
@@ -342,7 +342,8 @@
         <h2 id="jQuery中ajax-get-post请求的语法"><a href="#jQuery中ajax-get-post请求的语法" class="headerlink" title="jQuery中ajax get/post请求的语法"></a>jQuery中ajax get/post请求的语法</h2><p><strong>作用 ：异步的动态网站交互应用技术 无刷新的情况下 实现数据的交互</strong></p>
 <p><em>jQuery提供Ajax封装</em><br>$.get() 以GET方式发起Ajax请求 只能发送get请求  只有4个参数<br>1 - url 必填项 规定将请求发送到那个URL<br>2 - data 可选 规定连同请求发送到服务器的数据 参数的意思<br>3 - success 可选规定当请求成功时运行的函数<br>4 - dataType 可选 规定预计的服务器响应的数据类型 默认的jQuery会智能判断</p>
 <p>$.post() 以POST方式发起ajax请求 只能发送post请求 只有4个参数</p>
-<h3 id="jQuery中的ajax"><a href="#jQuery中的ajax" class="headerlink" title="jQuery中的ajax"></a>jQuery中的ajax</h3><p><em>$.ajax({}) 可配置的方式发起Ajax请求</em><br>1 - url 接口地址<br>2 - type 请求方式<br>3 - timeout 设定请求超时时间 就是设置一个默认请求的时间 超过时间 数据还没回来 就不要了 要是请求成功就响应success 不成功就响应error<br>4 - dataType 告诉底层$.ajax将返回来的数据以何种格式解析 人为的设置底层$.ajax用哪一种语法解析 支持 json  xml  jsonp<br>5 - data 发送请求数据 参数的意思<br>6 - beforeSend:function () { return false } 请求发起前调用 before：在…之前 send：发送 用于：在发送之前需要做的业务逻辑,用于页面中数据的判断 return false 会阻止请求的发送<br>7 - success 成功响应后调用的函数 一般用于渲染页面<br>8 - error 错误响应时调用<br>9 - compleat 响应完成时的响应的函数  无论成功还是失败 一般用于数据的初始化</p>
+<p><strong>jQuery中的ajax</strong></p>
+<p><em>$.ajax({}) 可配置的方式发起Ajax请求</em><br>1 - url 接口地址<br>2 - type 请求方式<br>3 - timeout 设定请求超时时间 就是设置一个默认请求的时间 超过时间 数据还没回来 就不要了 要是请求成功就响应success 不成功就响应error<br>4 - dataType 告诉底层$.ajax将返回来的数据以何种格式解析 人为的设置底层$.ajax用哪一种语法解析 支持 json  xml  jsonp<br>5 - data 发送请求数据 参数的意思<br>6 - beforeSend:function () { return false } 请求发起前调用 before：在…之前 send：发送 用于：在发送之前需要做的业务逻辑,用于页面中数据的判断 return false 会阻止请求的发送<br>7 - success 成功响应后调用的函数 一般用于渲染页面<br>8 - error 错误响应时调用<br>9 - compleat 响应完成时的响应的函数  无论成功还是失败 一般用于数据的初始化</p>
 <h2 id="zepto请求方式"><a href="#zepto请求方式" class="headerlink" title="zepto请求方式"></a>zepto请求方式</h2><p>$.get(“url”,”data”,成功的回调);</p>
 <p>$.post(“url”,”data”,成功的回调);</p>
 <p>$.get(“url”,”data”,function (result){<br>    console.log(result);<br>})</p>
@@ -385,6 +386,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/24/vs-code代码片段/" rel="prev" title="vs_code代码片段">
+                vs_code代码片段 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -461,7 +466,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -472,7 +477,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -483,7 +488,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -532,7 +537,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery中ajax-get-post请求的语法"><span class="nav-number">1.</span> <span class="nav-text">jQuery中ajax get/post请求的语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery中的ajax"><span class="nav-number">1.1.</span> <span class="nav-text">jQuery中的ajax</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zepto请求方式"><span class="nav-number">2.</span> <span class="nav-text">zepto请求方式</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery中ajax-get-post请求的语法"><span class="nav-number">1.</span> <span class="nav-text">jQuery中ajax get/post请求的语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zepto请求方式"><span class="nav-number">2.</span> <span class="nav-text">zepto请求方式</span></a></li></ol></div>
             
 
           </div>

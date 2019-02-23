@@ -246,6 +246,233 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/24/vs-code代码片段/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="My new chen">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CGFeng">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/24/vs-code代码片段/" itemprop="url">vs_code代码片段</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-24T03:07:12+08:00">
+                2019-02-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vs-code代码片段/" itemprop="url" rel="index">
+                    <span itemprop="name">vs_code代码片段</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="html-json"><a href="#html-json" class="headerlink" title="html.json"></a>html.json</h3><p><code>&lt;html&gt;
+{
+    &quot;a标签&quot;: {
+        &quot;prefix&quot;: &quot;aaa&quot;,
+        &quot;body&quot;: [
+            &quot;&lt;a href=\&quot;javascript:;\&quot;&gt;$1&lt;/a&gt;&quot;
+        ],
+        &quot;description&quot;: &quot;我自己定义的a标签&quot;
+    },
+    &quot;理想视口标签&quot;: {
+        &quot;prefix&quot;: &quot;meta:vp&quot;,
+        &quot;body&quot;: [
+            &quot;&lt;meta name=\&quot;viewport\&quot; content=\&quot;width=device-width, initial-scale=1.0,maximum-scale=1,minimum-scale=1,user-scalable=no\&quot;&gt;&quot;
+        ],
+        &quot;description&quot;: &quot;理想视口的标准写法&quot;
+    },
+    &quot;多了一个div&quot;: {
+        &quot;prefix&quot;: &quot;qdsq&quot;,
+        &quot;body&quot;: [
+            &quot;&lt;!DOCTYPE html&gt; &lt;html lang=\&quot;en\&quot;&gt; &lt;head&gt; &lt;meta charset=\&quot;UTF-8\&quot;&gt; &lt;meta name=\&quot;viewport\&quot; content=\&quot;width=device-width, initial-scale=1.0,maximum-scale=1,minimum-scale=1,user-scalable=no\&quot;&gt; &lt;title&gt;$TM_FILENAME&lt;/title&gt; &lt;style&gt; div:nth-child(1) { width: 200px; height: 200px; background-color: aqua;  margin: 100px auto; } &lt;/style&gt; &lt;/head&gt; &lt;body&gt; &lt;div&gt;&lt;/div&gt;   &lt;script&gt; var div=document.querySelector(\&quot;div\&quot;); &lt;/script&gt;&lt;/body&gt; &lt;/html&gt;&quot;
+        ],
+        &quot;description&quot;: &quot;多了一个div&quot;
+    },
+    &quot;li标签嵌套a标签嵌套图片标签&quot;: {
+        &quot;prefix&quot;: &quot;liai&quot;,
+        &quot;body&quot;: [
+            &quot; (li&gt;a[href=\&quot;javascript:;\&quot;]&gt;img[src])&quot;
+        ],
+        &quot;description&quot;: &quot;li&gt;a&gt;img&quot;
+    }
+    ,
+    &quot;生成jq标签&quot;: {
+        &quot;prefix&quot;: &quot;sq&quot;,
+        &quot;body&quot;: [
+            &quot; &lt;script src=\&quot;https://cdn.staticfile.org/jquery/1.2.3/jquery.js\&quot;&gt;&lt;/script&gt;&quot;
+        ],
+        &quot;description&quot;: &quot;&quot;
+    }
+}
+&lt;/html&gt;</code></p>
+<h3 id="javascript-json"><a href="#javascript-json" class="headerlink" title="javascript.json"></a>javascript.json</h3><p><code>&lt;html&gt;
+{
+    &quot;打印文本&quot;: {
+        &quot;prefix&quot;: &quot;log&quot;,
+        &quot;body&quot;: [
+            &quot;console.log($1);&quot;
+        ],
+        &quot;description&quot;: &quot;打印输出&quot;
+    },
+    &quot;根据id获取元素&quot;: {
+        &quot;prefix&quot;: &quot;dgi&quot;,
+        &quot;body&quot;: [
+            &quot;document.getElementById(&#39;$1&#39;);&quot;
+        ],
+        &quot;description&quot;: &quot;根据id获取元素&quot;
+    },
+    &quot;根据标签名获取元素&quot;: {
+        &quot;prefix&quot;: &quot;dgt&quot;,
+        &quot;body&quot;: [
+            &quot;document.getElementsByTagName(&#39;$1&#39;);&quot;
+        ],
+        &quot;description&quot;: &quot;根据标签名获取元素&quot;
+    },
+    &quot;根据类名获取元素&quot;: {
+        &quot;prefix&quot;: &quot;dgc&quot;,
+        &quot;body&quot;: [
+            &quot;document.getElementsByClassName(&#39;$1&#39;);&quot;
+        ],
+        &quot;description&quot;: &quot;根据类名获取元素&quot;
+    },
+    &quot;h5获取元素&quot;: {
+        &quot;prefix&quot;: &quot;dqs&quot;,  
+        &quot;body&quot;: [
+            &quot;document.querySelector(&#39;$1&#39;);&quot;
+        ],
+        &quot;description&quot;: &quot;h5获取元素&quot;
+    },
+    &quot;h5获取所有&quot;: {
+        &quot;prefix&quot;: &quot;dqa&quot;,
+        &quot;body&quot;: [
+            &quot;document.querySelectorAll(&#39;$1&#39;);&quot;
+        ],
+        &quot;description&quot;: &quot;h5获取元素&quot;
+    }
+}
+&lt;/html&gt;</code></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/23/前端的数据请求/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -342,7 +569,8 @@
             <h2 id="jQuery中ajax-get-post请求的语法"><a href="#jQuery中ajax-get-post请求的语法" class="headerlink" title="jQuery中ajax get/post请求的语法"></a>jQuery中ajax get/post请求的语法</h2><p><strong>作用 ：异步的动态网站交互应用技术 无刷新的情况下 实现数据的交互</strong></p>
 <p><em>jQuery提供Ajax封装</em><br>$.get() 以GET方式发起Ajax请求 只能发送get请求  只有4个参数<br>1 - url 必填项 规定将请求发送到那个URL<br>2 - data 可选 规定连同请求发送到服务器的数据 参数的意思<br>3 - success 可选规定当请求成功时运行的函数<br>4 - dataType 可选 规定预计的服务器响应的数据类型 默认的jQuery会智能判断</p>
 <p>$.post() 以POST方式发起ajax请求 只能发送post请求 只有4个参数</p>
-<h3 id="jQuery中的ajax"><a href="#jQuery中的ajax" class="headerlink" title="jQuery中的ajax"></a>jQuery中的ajax</h3><p><em>$.ajax({}) 可配置的方式发起Ajax请求</em><br>1 - url 接口地址<br>2 - type 请求方式<br>3 - timeout 设定请求超时时间 就是设置一个默认请求的时间 超过时间 数据还没回来 就不要了 要是请求成功就响应success 不成功就响应error<br>4 - dataType 告诉底层$.ajax将返回来的数据以何种格式解析 人为的设置底层$.ajax用哪一种语法解析 支持 json  xml  jsonp<br>5 - data 发送请求数据 参数的意思<br>6 - beforeSend:function () { return false } 请求发起前调用 before：在…之前 send：发送 用于：在发送之前需要做的业务逻辑,用于页面中数据的判断 return false 会阻止请求的发送<br>7 - success 成功响应后调用的函数 一般用于渲染页面<br>8 - error 错误响应时调用<br>9 - compleat 响应完成时的响应的函数  无论成功还是失败 一般用于数据的初始化</p>
+<p><strong>jQuery中的ajax</strong></p>
+<p><em>$.ajax({}) 可配置的方式发起Ajax请求</em><br>1 - url 接口地址<br>2 - type 请求方式<br>3 - timeout 设定请求超时时间 就是设置一个默认请求的时间 超过时间 数据还没回来 就不要了 要是请求成功就响应success 不成功就响应error<br>4 - dataType 告诉底层$.ajax将返回来的数据以何种格式解析 人为的设置底层$.ajax用哪一种语法解析 支持 json  xml  jsonp<br>5 - data 发送请求数据 参数的意思<br>6 - beforeSend:function () { return false } 请求发起前调用 before：在…之前 send：发送 用于：在发送之前需要做的业务逻辑,用于页面中数据的判断 return false 会阻止请求的发送<br>7 - success 成功响应后调用的函数 一般用于渲染页面<br>8 - error 错误响应时调用<br>9 - compleat 响应完成时的响应的函数  无论成功还是失败 一般用于数据的初始化</p>
 <h2 id="zepto请求方式"><a href="#zepto请求方式" class="headerlink" title="zepto请求方式"></a>zepto请求方式</h2><p>$.get(“url”,”data”,成功的回调);</p>
 <p>$.post(“url”,”data”,成功的回调);</p>
 <p>$.get(“url”,”data”,function (result){<br>    console.log(result);<br>})</p>
@@ -1201,7 +1429,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1212,7 +1440,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1223,7 +1451,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
