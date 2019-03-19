@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="el 是vue实例的映射范围  data 是一个对象  用来写属性值  methods 是一个对象  专门用来声明自定义函数">
+<meta name="description" content="el =&amp;gt; 映射范围 是vue实例的映射范围  data =&amp;gt; 普通数据值 是一个对象  用来写属性值  methods =&amp;gt; 函数 是一个对象  专门用来声明自定义函数   mounted =&amp;gt; 勾子函数 是一个函数 =&amp;gt; mounted(){}  勾子函数/自动触发的函数/页面一打开就立刻触发的函数/相当于window.onload  computed =&amp;gt;">
 <meta name="keywords" content="vue区块-详解">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue区块-详解">
 <meta property="og:url" content="http://yoursite.com/2019/03/02/vue区块-详解/index.html">
 <meta property="og:site_name" content="CGFeng">
-<meta property="og:description" content="el 是vue实例的映射范围  data 是一个对象  用来写属性值  methods 是一个对象  专门用来声明自定义函数">
+<meta property="og:description" content="el =&amp;gt; 映射范围 是vue实例的映射范围  data =&amp;gt; 普通数据值 是一个对象  用来写属性值  methods =&amp;gt; 函数 是一个对象  专门用来声明自定义函数   mounted =&amp;gt; 勾子函数 是一个函数 =&amp;gt; mounted(){}  勾子函数/自动触发的函数/页面一打开就立刻触发的函数/相当于window.onload  computed =&amp;gt;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-02T15:14:24.971Z">
+<meta property="og:updated_time" content="2019-03-17T18:08:18.528Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue区块-详解">
-<meta name="twitter:description" content="el 是vue实例的映射范围  data 是一个对象  用来写属性值  methods 是一个对象  专门用来声明自定义函数">
+<meta name="twitter:description" content="el =&amp;gt; 映射范围 是vue实例的映射范围  data =&amp;gt; 普通数据值 是一个对象  用来写属性值  methods =&amp;gt; 函数 是一个对象  专门用来声明自定义函数   mounted =&amp;gt; 勾子函数 是一个函数 =&amp;gt; mounted(){}  勾子函数/自动触发的函数/页面一打开就立刻触发的函数/相当于window.onload  computed =&amp;gt;">
 
 
 
@@ -339,9 +339,12 @@
       
 
       
-        <h3 id="el"><a href="#el" class="headerlink" title="el"></a>el</h3><p><strong> 是vue实例的映射范围 </strong></p>
-<h3 id="data"><a href="#data" class="headerlink" title="data"></a>data</h3><p><strong> 是一个对象 </strong><br><strong> 用来写属性值 </strong></p>
-<h3 id="methods"><a href="#methods" class="headerlink" title="methods"></a>methods</h3><p><strong> 是一个对象 </strong><br><strong> 专门用来声明自定义函数 </strong> </p>
+        <h3 id="el-gt-映射范围"><a href="#el-gt-映射范围" class="headerlink" title="el =&gt; 映射范围"></a>el =&gt; 映射范围</h3><p><strong> 是vue实例的映射范围 </strong></p>
+<h3 id="data-gt-普通数据值"><a href="#data-gt-普通数据值" class="headerlink" title="data =&gt; 普通数据值"></a>data =&gt; 普通数据值</h3><p><strong> 是一个对象 </strong><br><strong> 用来写属性值 </strong></p>
+<h3 id="methods-gt-函数"><a href="#methods-gt-函数" class="headerlink" title="methods =&gt; 函数"></a>methods =&gt; 函数</h3><p><strong> 是一个对象 </strong><br><strong> 专门用来声明自定义函数 </strong> </p>
+<h3 id="mounted-gt-勾子函数"><a href="#mounted-gt-勾子函数" class="headerlink" title="mounted =&gt; 勾子函数"></a>mounted =&gt; 勾子函数</h3><p><strong> 是一个函数 =&gt; mounted(){} </strong><br><strong> 勾子函数/自动触发的函数/页面一打开就立刻触发的函数/相当于window.onload </strong></p>
+<h3 id="computed-gt-计算属性"><a href="#computed-gt-计算属性" class="headerlink" title="computed =&gt;计算属性"></a>computed =&gt;计算属性</h3><p><strong> 计算属性 </strong><br><strong> 是一个属性 =&gt; computed: {} 在里面定义一些函数 只有在调用该函数的dom元素的数据发生改变时才会触发 依赖的数据不发生改变时是不会触发的 </strong><br><strong> 不会传递参数 </strong><br><strong> 通过this.XXX 拿到data中的属性值 </strong><br><strong> 优点: 可以在dom元素上通过 v-model=”来调用computed计算属性区中定义的函数” </strong><br><strong> 优点2: conputed中定义的函数 带有缓存 只有在所依赖的数据发生改变时才会触发调用这个函数 </strong><br><strong> 缺点: 异步操作时不会调用computed里面自定义的函数 如: 在computed里面写一个定时器 再在定时器里面定义函数时 是不会触发这个函数的 </strong></p>
+<h3 id="watch-gt-监听"><a href="#watch-gt-监听" class="headerlink" title="watch =&gt; 监听"></a>watch =&gt; 监听</h3><p><strong> watch 是一个对象 </strong><br><strong> watch中成员的名称不能随意定义,它的名称只能和data中的成员名称一致。你想监听data中哪个成员的值的变化,就添加这个成员名称的函数 </strong><br><strong> 它的函数有两个参数 new：新的值 , old: 旧的值 </strong></p>
 
       
     </div>
@@ -381,6 +384,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/06/js语法综合大全/" rel="prev" title="js语法综合大全">
+                js语法综合大全 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -457,7 +464,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -468,7 +475,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -479,7 +486,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -528,7 +535,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#el"><span class="nav-number">1.</span> <span class="nav-text">el</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#data"><span class="nav-number">2.</span> <span class="nav-text">data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#methods"><span class="nav-number">3.</span> <span class="nav-text">methods</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#el-gt-映射范围"><span class="nav-number">1.</span> <span class="nav-text">el =&gt; 映射范围</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#data-gt-普通数据值"><span class="nav-number">2.</span> <span class="nav-text">data =&gt; 普通数据值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#methods-gt-函数"><span class="nav-number">3.</span> <span class="nav-text">methods =&gt; 函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mounted-gt-勾子函数"><span class="nav-number">4.</span> <span class="nav-text">mounted =&gt; 勾子函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#computed-gt-计算属性"><span class="nav-number">5.</span> <span class="nav-text">computed =&gt;计算属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#watch-gt-监听"><span class="nav-number">6.</span> <span class="nav-text">watch =&gt; 监听</span></a></li></ol></div>
             
 
           </div>
