@@ -246,6 +246,665 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/28/vue指令-详解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="My new chen">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CGFeng">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/28/vue指令-详解/" itemprop="url">vue基础</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-28T07:56:38+08:00">
+                2019-02-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vue指令-详解/" itemprop="url" rel="index">
+                    <span itemprop="name">vue指令-详解</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="vue指令-详解"><a href="#vue指令-详解" class="headerlink" title="vue指令-详解"></a>vue指令-详解</h3><p><strong> v-text=”值” 只会把data里面的值原输出 </strong><br><strong> v-html=”值 当data里面的值是 标签格式则会解析标签 即为 生成标签样式 </strong><br><strong> v-bind: 它的功能是让冒号后面的值 进行动态的绑定 也是属于单向绑定 v-bind:绑定如果model中的数据发生改变了 view中的数据也会跟着发生改变 但是反过来view中的数据发生改变 model中的数据却未必会跟着改变 </strong><br><strong> v-for=”(value,index) in 目标” </strong><br><strong> v-model=”” 双向绑定 即是 model中的数据发生改变 view中的展示数据也会发生改变 反过来也是如此 </strong><br><strong> v-show=”值” 控制标签元素的显示与隐藏 生成标签 相当于添加了 display：none </strong><br><strong> v-if=”值” 控制的是属性标签 显示与隐藏 如果值为false 不生成标签接口 </strong><br><strong> v-on:click=”事件处理函数(参数)” 缩写 =&gt; @click=”” 动态绑定一个处理函数 自定义函数 写在methods区块 </strong><br><strong> v-once 只会执行一次的指令 </strong> </p>
+<h3 id="1-vue初体验"><a href="#1-vue初体验" class="headerlink" title="1_vue初体验"></a>1_vue初体验</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;</span><br><span class="line">    &lt;title&gt;vue初体验&lt;/title&gt;</span><br><span class="line">    &lt;!-- 1 引vue.js包 --&gt;</span><br><span class="line">    &lt;script src=&quot;./js/vue2.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;!-- 4 添加一个vue影响范围标签 不管是类还是id 取id只是因为拿一个唯一值 --&gt;</span><br><span class="line">    &lt;div id=&quot;vue_wrap&quot;&gt;</span><br><span class="line">        &lt;!-- 5 设置你想显示的数据 --&gt;</span><br><span class="line">        &lt;p&gt;&#123;&#123;msg&#125;&#125;&lt;/p&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;!-- 2 创建vue实例 参数是一个对象 在对象中可以进行vue的相关配置 --&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        var vm = new Vue(&#123;</span><br><span class="line">            // 3 进行vue的相关配置</span><br><span class="line">            // 3.1 el是设置当前vue所影响的范围</span><br><span class="line">            el: &quot;#vue_wrap&quot;,</span><br><span class="line">            // 3.2 data 数据 他是一个对象 因为数据不止一个 这是vue以后的model 它是mvvm模型 这个</span><br><span class="line">            // 模型中的数据 将来可以在vue的影响范围内展示</span><br><span class="line">            data: &#123;</span><br><span class="line">                msg: &quot;hello word&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="插值表达式"><a href="#插值表达式" class="headerlink" title="插值表达式"></a>插值表达式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;script src=&quot;./js/vue2.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">        &lt;!-- 1 基本插值表达式 == hello--&gt;</span><br><span class="line">        &lt;p&gt;&#123;&#123;msg&#125;&#125;&lt;/p&gt;</span><br><span class="line">        &lt;!-- 2 运算  == 19--&gt;</span><br><span class="line">        &lt;p&gt;&#123;&#123;age + 1&#125;&#125;&lt;/p&gt;</span><br><span class="line">        &lt;!-- 3 字符串拼接 == hello worldliike--&gt;</span><br><span class="line">        &lt;p&gt;&#123;&#123;msg + &quot;like&quot; &#125;&#125;&lt;/p&gt;</span><br><span class="line">        &lt;!-- 4 三元表达式 == 成年--&gt;</span><br><span class="line">        &lt;p&gt;&#123;&#123;age &gt;= 18 ? &quot;成年&quot;:&quot;未成年&quot;&#125;&#125;&lt;/p&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        var vm = new Vue(&#123;</span><br><span class="line">            el: &quot;#app&quot;,</span><br><span class="line">            data: &#123;</span><br><span class="line">                msg: &quot;hello world&quot;,</span><br><span class="line">                age: 18</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="v-text"><a href="#v-text" class="headerlink" title="v-text"></a>v-text</h3><p><strong> 1：插值表达式只能写在双标签之间</strong><br><strong> 2：所有的指令都是属性 意味着不要把属性写在标签之间 v-text他的使用格式是 属性=”值” </strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;script src=&quot;./js/vue2.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">        &lt;!-- 插值表达式只能写在标签之间 --&gt;</span><br><span class="line">        &lt;p&gt;&#123;&#123;msg&#125;&#125;&lt;/p&gt;</span><br><span class="line">        &lt;!-- v-text是指令 所有的指令都是属性 他的使用格式是 属性=&quot;值&quot; --&gt;</span><br><span class="line">        &lt;span v-text=&quot;msg&quot;&gt;&lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        var vm = new Vue(&#123;</span><br><span class="line">            el: &quot;#app&quot;,</span><br><span class="line">            data: &#123;</span><br><span class="line">                msg: &quot;你好&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="v-bind"><a href="#v-bind" class="headerlink" title="v-bind"></a>v-bind</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        .fontColor &#123;</span><br><span class="line">            color: red;</span><br><span class="line">        &#125;</span><br><span class="line">        .fontBlue &#123;</span><br><span class="line">            color: blue;</span><br><span class="line">            font-weight: 700;</span><br><span class="line">        &#125;</span><br><span class="line">        .fontSize &#123;</span><br><span class="line">            font-size: 30px;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">    &lt;script src=&quot;./js/vue2.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">        &lt;!-- 注意: 动态的绑定就是绑定data里面的对象 --&gt;</span><br><span class="line">        &lt;!-- v-bind:动态绑定src --&gt;</span><br><span class="line">        &lt;img v-bind:src=&quot;imgSrc&quot; alt=&quot;&quot;&gt;</span><br><span class="line">        &lt;!-- v-bind: 的缩写 : --&gt;</span><br><span class="line">        &lt;!-- 动态绑定拼接字符串 --&gt;</span><br><span class="line">        &lt;a :href=&quot;&apos;./del?id=&apos;+id&quot;&gt;百度&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">        &lt;p class=&quot;fontColor&quot;&gt;字体什么颜色&lt;/p&gt;</span><br><span class="line">        &lt;!-- 动态绑定css样式 当fontTrue为true时 就添加fontColor --&gt;</span><br><span class="line">        &lt;p :class=&quot;&#123;fontColor:fontTrue&#125;&quot;&gt;动态绑定后的字体颜色&lt;/p&gt;</span><br><span class="line">        &lt;!-- 动态绑定进行判断 --&gt;</span><br><span class="line">        &lt;p :class=&quot;&#123;fontColor:judge==10&#125;&quot;&gt;动态绑定判断后得到的样式&lt;/p&gt;</span><br><span class="line">        &lt;!-- 同时添加对个绑定的css样式 --&gt;</span><br><span class="line">        &lt;p :class=&quot;[fontBlue,fontSize]&quot;&gt;你好&lt;/p&gt;</span><br><span class="line">        &lt;!-- 同时添加多个css样式 并且最后一个进行了动态的判断 --&gt;</span><br><span class="line">        &lt;p :class=&quot;[fontBlue,&#123;fontSize:fontIf&#125;]&quot;&gt;hello world&lt;/p&gt;</span><br><span class="line">        &lt;!-- 动态绑定控制字体的大小 使用字符串拼接法 --&gt;</span><br><span class="line">        &lt;p :style=&quot;&apos;font-size:&apos;+ fs+&apos;px&apos;&quot;&gt;字体大小&lt;/p&gt;</span><br><span class="line">        &lt;!-- 动态绑定控制字体大小 使用vue推荐的方法 --&gt;</span><br><span class="line">        &lt;p :style=&quot;&#123;fontSize: fs +&apos;px&apos;&#125;&quot;&gt;字体大小&lt;/p&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- vue实例 --&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        var vm = new Vue(&#123;</span><br><span class="line">            el: &quot;#app&quot;,</span><br><span class="line">            data: &#123;</span><br><span class="line">                imgSrc: &quot;./images/20140926200335_hGkmk.jpeg&quot;,</span><br><span class="line">                id: 10,</span><br><span class="line">                fontTrue: true,</span><br><span class="line">                judge: 10,</span><br><span class="line">                fontBlue: &quot;fontBlue&quot;,</span><br><span class="line">                fontSize: &quot;fontSize&quot;,</span><br><span class="line">                fontIf: true,</span><br><span class="line">                fs: 60</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="v-for"><a href="#v-for" class="headerlink" title="v-for"></a>v-for</h3><p><strong> 可以遍历数组或者对象 </strong><br><strong> v-for循环遍历 是一个属性 属性则是属性=值 v-for=”(value,index) in 目标 “ </strong><br><strong> 注意：遍历数组 没有key key是键 </strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;script src=&quot;./js/vue2.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &lt;!-- v-for循环遍历 是一个属性 属性则是属性=值 v-for=&quot;(value,index)&quot; in 目标 --&gt;</span><br><span class="line">            &lt;!-- 注意：遍历数组 没有key key是键 --&gt;</span><br><span class="line">            &lt;li v-for=&quot;(value,index) in arrList&quot;&gt;&#123;&#123;value&#125;&#125;-&#123;&#123;index&#125;&#125;&lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &lt;li v-for=&quot;(value,key,index) in objectList&quot;&gt;&#123;&#123;key&#125;&#125;-&#123;&#123;value&#125;&#125;-&#123;&#123;index&#125;&#125;&lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        var vm = new Vue(&#123;</span><br><span class="line">            el: &quot;#app&quot;,</span><br><span class="line">            data: &#123;</span><br><span class="line">                arrList: [&quot;小米&quot;,&quot;华为&quot;,&quot;三星&quot;,&quot;苹果&quot;,&quot;魅族&quot;],</span><br><span class="line">                objectList: &#123;</span><br><span class="line">                    brand: &quot;机械革命&quot;,</span><br><span class="line">                    price: 5999,</span><br><span class="line">                    size: 15.6,</span><br><span class="line">                    color: &quot;black&quot;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="v-show和v-if"><a href="#v-show和v-if" class="headerlink" title="v-show和v-if"></a>v-show和v-if</h3><p><strong> v-show控制标签元素的显示与隐藏 生成标签 相当于添加了 display：none </strong><br><strong> v-if控制的是属性标签 显示与隐藏 如果值为false 不生成标签接口 </strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;script src=&quot;./js/vue2.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">        &lt;!-- v-show控制标签元素的显示与隐藏 生成标签 相当于添加了 display：none --&gt;</span><br><span class="line">        &lt;p v-show=&quot;vis&quot;&gt;你好&lt;/p&gt;</span><br><span class="line">        &lt;!-- v-if控制的是属性标签 显示与隐藏 如果值为false 不生成标签接口 --&gt;</span><br><span class="line">        &lt;p v-if=&quot;vis&quot;&gt;你好啊&lt;/p&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        var vm = new Vue(&#123;</span><br><span class="line">            el: &quot;#app&quot;,</span><br><span class="line">            data: &#123;</span><br><span class="line">                vis: false</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="v-if-else"><a href="#v-if-else" class="headerlink" title="v-if-else"></a>v-if-else</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;script src=&quot;./js/vue2.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">        &lt;!-- 判断model中的 score数据是否大于或等于90 是就渲染A --&gt;</span><br><span class="line">        &lt;p v-if=&quot;score &gt;= 90&quot;&gt;A&lt;/p&gt;</span><br><span class="line">        &lt;!-- 判断model中的 score数据是否大于或等于80 是就渲染B --&gt;</span><br><span class="line">        &lt;P v-else-if=&quot;score &gt;= 80&quot;&gt;B&lt;/P&gt;</span><br><span class="line">        &lt;!-- 判断model中的 score数据是否大于或等于70 是就渲染C --&gt;</span><br><span class="line">        &lt;P v-else-if=&quot;score &gt;= 70&quot;&gt;C&lt;/P&gt;</span><br><span class="line">        &lt;!-- 判断model中的 score数据是否大于或等于60 是就渲染D --&gt;</span><br><span class="line">        &lt;P v-else-if=&quot;score &gt;= 60&quot;&gt;D&lt;/P&gt;</span><br><span class="line">        &lt;!-- 以上都没有判断成功 只能渲染 E --&gt;</span><br><span class="line">        &lt;P v-else&gt;E&lt;/P&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        var vm = new Vue(&#123;</span><br><span class="line">            el: &quot;#app&quot;,</span><br><span class="line">            data: &#123;</span><br><span class="line">                score: 88</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="v-on-阻止冒泡-默认行为-对象语法"><a href="#v-on-阻止冒泡-默认行为-对象语法" class="headerlink" title="v-on 阻止冒泡 默认行为 对象语法"></a>v-on 阻止冒泡 默认行为 对象语法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;script src=&quot;./js/vue2.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">        &lt;p v-if=&quot;judge&quot;&gt;&#123;&#123;age&#125;&#125;&lt;/p&gt;</span><br><span class="line">        &lt;!-- v-on:click=&quot;事件处理函数(参数)&quot; 动态绑定一个处理函数 --&gt;</span><br><span class="line">        &lt;!-- v-on:click=&quot;事件处理函数(参数...)&quot; 即是表明可以书写多个参数--&gt;</span><br><span class="line">        &lt;!-- 缩写：@click=&quot;事件处理函数(参数)&quot; --&gt;</span><br><span class="line">        &lt;button v-on:click=&quot;toThis&quot;&gt;console输出数据&lt;/button&gt;</span><br><span class="line">        &lt;!-- 控制data数据里面的 age值 --&gt;</span><br><span class="line">        &lt;button @click=&quot;age = age + 1&quot;&gt;控制data数据里面的age值&lt;/button&gt;</span><br><span class="line">        &lt;!-- 控制data数据里面的age数据的显示与隐藏 --&gt;</span><br><span class="line">        &lt;button v-show=&quot;judge&quot;&gt;&#123;&#123;age&#125;&#125;&lt;/button&gt;</span><br><span class="line">        &lt;button @click=&quot;judge =! judge&quot;&gt;控制data数据里面的age值显示与隐藏&lt;/button&gt;</span><br><span class="line">        &lt;!-- 点击按钮调用methods中的函数 并且没有传参数 在没有传参数的情况下 默认会将event值进行传参--&gt;</span><br><span class="line">        &lt;button @click=&quot;toThis&quot;&gt;调用函数&lt;/button&gt;</span><br><span class="line">        &lt;!-- 调用函数时传递参数时 是不会默认将event作为参数传递 实现的方法是传递: $event 把它作为参数传递 --&gt;</span><br><span class="line">        &lt;button @click=&quot;toThis(age,$event)&quot;&gt;调用函数2&lt;/button&gt;</span><br><span class="line">        &lt;!-- 修饰符 --&gt;</span><br><span class="line">        &lt;!-- 阻止冒泡 .stop - 调用 event.stopPropagation() --&gt;</span><br><span class="line">        &lt;!-- 阻止默认行为 .prevent - 调用 event.preventDefault() --&gt;</span><br><span class="line">        &lt;a @click.prevent=&quot;Tjudge&quot; href=&quot;http://www.baidu.com&quot;&gt;百度&lt;/a&gt;</span><br><span class="line">        &lt;!-- 同时实现阻止冒泡和阻止默认行为 --&gt;</span><br><span class="line">        &lt;a href=&quot;http://www.baidu.com&quot; @click.prevent.stop=&quot;Tjudge&quot;&gt;百度2&lt;/a&gt;</span><br><span class="line">        &lt;!-- 绑定@keyup事件 即是.enter 当按下enter键时才会触发的事件 --&gt;</span><br><span class="line">        &lt;input type=&quot;button&quot; value=&quot;提交&quot; @keyup.enter=&quot;Tjudge&quot;&gt;</span><br><span class="line">        &lt;!-- @keyup=&quot;&quot; 按下任何键都会执行 --&gt;</span><br><span class="line">        &lt;input type=&quot;text&quot; name=&quot;&quot; id=&quot;&quot; @keyup=&quot;Tjudge&quot;&gt;</span><br><span class="line">        &lt;!-- .once 只会触发一次 --&gt;</span><br><span class="line">        &lt;input type=&quot;text&quot; @keyup.enter.once=&quot;Tjudge&quot;&gt;</span><br><span class="line">        &lt;!-- 对象语法 当鼠标按下时执行的对象 和 当鼠标按下松开的时候执行的对象 这种语法不支持阻止默认行为和阻止冒泡 --&gt;</span><br><span class="line">        &lt;button v-on=&quot;&#123;mousedown: one , mouseup: two&#125;&quot;&gt;对象语法&lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        var vm = new Vue(&#123;</span><br><span class="line">            el: &quot;#app&quot;,</span><br><span class="line">            data: &#123;</span><br><span class="line">                age: 18,</span><br><span class="line">                judge: true</span><br><span class="line">            &#125;,</span><br><span class="line">            methods: &#123;</span><br><span class="line">                toThis: function (value,event)&#123;</span><br><span class="line">                    console.log(123)</span><br><span class="line">                    console.log(value)</span><br><span class="line">                    console.log(event)</span><br><span class="line">                &#125;,</span><br><span class="line">                Tjudge()&#123;</span><br><span class="line">                    console.log(&quot;阻止默认行为&quot;)</span><br><span class="line">                &#125;,</span><br><span class="line">                one()&#123;</span><br><span class="line">                    console.log(&quot;mousedown是鼠标按下时触发的对象&quot;)</span><br><span class="line">                &#125;,</span><br><span class="line">                two()&#123;</span><br><span class="line">                    console.log(&quot;mouseup是鼠标松开时执行的对象&quot;)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="vue第一天案例"><a href="#vue第一天案例" class="headerlink" title="vue第一天案例"></a>vue第一天案例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;script src=&quot;./js/vue2.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        #app &#123;</span><br><span class="line">            width: 600px;</span><br><span class="line">            margin: 0 auto;</span><br><span class="line">        &#125;</span><br><span class="line">        #number &#123;</span><br><span class="line">            border: 1px solid #000;</span><br><span class="line">            padding: 5px 5px;</span><br><span class="line">        &#125;</span><br><span class="line">        .brand_name &#123;</span><br><span class="line">            border: 1px solid #000;</span><br><span class="line">            padding: 5px 5px;</span><br><span class="line">            margin: 10px 0;</span><br><span class="line">        &#125;</span><br><span class="line">        #brand_list &#123;</span><br><span class="line">            border: 1px solid #000000</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">        &lt;div id=&quot;number&quot;&gt;</span><br><span class="line">            编号: &lt;input type=&quot;text&quot; name=&quot;&quot; id=&quot;&quot; v-model=&quot;list_id&quot;&gt;</span><br><span class="line">            品牌名称: &lt;input type=&quot;text&quot; name=&quot;&quot; id=&quot;&quot; v-model=&quot;list_brand&quot;&gt;</span><br><span class="line">            &lt;input type=&quot;button&quot; value=&quot;添加&quot; @click=&quot;add&quot;&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;brand_name&quot;&gt;</span><br><span class="line">            品牌名称: &lt;input type=&quot;text&quot; placeholder=&quot;请输入搜索条件&quot;&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div id=&quot;brand_list&quot;&gt;</span><br><span class="line">           &lt;table&gt;</span><br><span class="line">               &lt;tr&gt;</span><br><span class="line">                   &lt;th&gt;编号&lt;/th&gt;</span><br><span class="line">                   &lt;th&gt;品牌名称&lt;/th&gt;</span><br><span class="line">                   &lt;th&gt;创立时间&lt;/th&gt;</span><br><span class="line">                   &lt;th&gt;操作&lt;/th&gt;</span><br><span class="line">               &lt;/tr&gt;</span><br><span class="line">               &lt;tr v-for=&quot;value,index in list&quot;&gt;</span><br><span class="line">                   &lt;td&gt;&#123;&#123;value.id&#125;&#125;&lt;/td&gt;</span><br><span class="line">                   &lt;td&gt;&#123;&#123;value.brand&#125;&#125;&lt;/td&gt;</span><br><span class="line">                   &lt;td&gt;&#123;&#123;value.date&#125;&#125;&lt;/td&gt;</span><br><span class="line">                   &lt;!-- 在当前的for循环中传入index索引值 就能拿到当前需要删除的值 .prevent是阻止默认行为 --&gt;</span><br><span class="line">                   &lt;td&gt;&lt;a href=&quot;#&quot; @click.prevent=&quot;del(index)&quot;&gt;删除&lt;/a&gt;&lt;/td&gt;</span><br><span class="line">               &lt;/tr&gt;</span><br><span class="line">           &lt;/table&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;!-- vue实例 --&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        var vm = new Vue(&#123;</span><br><span class="line">            el: &quot;#app&quot;,</span><br><span class="line">            data: &#123;</span><br><span class="line">                list: [</span><br><span class="line">                    &#123;</span><br><span class="line">                        id: 1,</span><br><span class="line">                        brand: &quot;李宁&quot;,</span><br><span class="line">                        date: new Date()</span><br><span class="line">                    &#125;,</span><br><span class="line">                    &#123;</span><br><span class="line">                        id: 2,</span><br><span class="line">                        brand: &quot;安踏&quot;,</span><br><span class="line">                        date: new Date()</span><br><span class="line">                    &#125;,</span><br><span class="line">                    &#123;</span><br><span class="line">                        id: 3,</span><br><span class="line">                        brand: &quot;耐克&quot;,</span><br><span class="line">                        date: new Date()</span><br><span class="line">                    &#125;</span><br><span class="line">                ],</span><br><span class="line">                list_id: &quot;&quot;,</span><br><span class="line">                list_brand: &quot;&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            methods: &#123;</span><br><span class="line">                add()&#123;</span><br><span class="line">                    console.log(this.list_id)</span><br><span class="line">                    // console.log(this.list_brand)</span><br><span class="line">                    // console.log(this.list_date)</span><br><span class="line">                    var newObj = &#123;</span><br><span class="line">                        id: this.list_id,</span><br><span class="line">                        brand: this.list_brand,</span><br><span class="line">                        date: new Date()</span><br><span class="line">                    &#125;</span><br><span class="line">                    this.list.push(newObj)</span><br><span class="line">                &#125;,</span><br><span class="line">                del(index)&#123;</span><br><span class="line">                    console.log(index)</span><br><span class="line">                    // .splice(index,number) index是索引 number是删除的个数</span><br><span class="line">                    this.list.splice(index,1)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/24/vs-code须安装的插件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="My new chen">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CGFeng">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/24/vs-code须安装的插件/" itemprop="url">vs_code须安装的插件</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-24T03:37:28+08:00">
+                2019-02-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vs-code须安装的插件/" itemprop="url" rel="index">
+                    <span itemprop="name">vs_code须安装的插件</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><img src="https://upload-images.jianshu.io/upload_images/15330548-6199f85937200835.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/24/jquery详解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="My new chen">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CGFeng">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/24/jquery详解/" itemprop="url">jquery详解</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-24T03:34:43+08:00">
+                2019-02-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/jquery详情/" itemprop="url" rel="index">
+                    <span itemprop="name">jquery详情</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="jquery介绍"><a href="#jquery介绍" class="headerlink" title="jquery介绍"></a>jquery介绍</h3><pre><code>jquery最大的价值就是兼容性好
+主要使用于pc端
+</code></pre><h3 id="查看网站是否使用jquery"><a href="#查看网站是否使用jquery" class="headerlink" title="查看网站是否使用jquery"></a>查看网站是否使用jquery</h3><pre><code>window.$
+</code></pre><h3 id="获取网站所使用的jquery的版本"><a href="#获取网站所使用的jquery的版本" class="headerlink" title="获取网站所使用的jquery的版本"></a>获取网站所使用的jquery的版本</h3><pre><code>window.$.fn.jquery
+</code></pre><h3 id="jquery的入口函数"><a href="#jquery的入口函数" class="headerlink" title="jquery的入口函数"></a>jquery的入口函数</h3><pre><code>$( function () {} )  等同于 js的window.onload = function () {}
+</code></pre><h3 id="jquery的事件类型"><a href="#jquery的事件类型" class="headerlink" title="jquery的事件类型"></a>jquery的事件类型</h3><pre><code>$(&quot;div&quot;).click(  function (){} )  点击
+$(&quot;div&quot;).hide(1000)  隐藏 参数 - 隐藏的时间
+$(&quot;div&quot;).show( 1000 ) 显示
+$(&quot;div&quot;).mouseover() 鼠标移入
+$(&quot;div&quot;).mouseout() 鼠标移出
+$(&quot;div&quot;).hover(function(){} , function (){})  代表着移入与移出 - 第一个函数代表移入 第二个代表移出
+</code></pre><h3 id="jquery选择器"><a href="#jquery选择器" class="headerlink" title="jquery选择器"></a>jquery选择器</h3><pre><code>1 $(&quot;div&quot;) 属性选择器
+2 $(&quot;.div&quot;) 类选择器
+3 $(&quot;#div&quot;) id选择器
+4 $(&quot;div:eq(0)&quot;) 伪类选择器 - 索引
+4.1 $(&quot;li:even&quot;) 伪类选择器 - 偶数
+5 $(&apos;[type=&quot;button&quot;]&apos;) 
+6 $(&quot;:disabled&quot;) 获取到被禁用的元素
+7 $(&quot;.father .son&quot;) 获取到子元素.son
+7.1 $(&quot;.father&quot;).children(&quot;.son&quot;) 取到子元素.son
+8 $(&quot;.btn1,.btn2&quot;)  并集选择器 同时获取到两个元素
+</code></pre><h3 id="jquery的属性方法"><a href="#jquery的属性方法" class="headerlink" title="jquery的属性方法"></a>jquery的属性方法</h3><pre><code>控制(修改)css的样式  -  以传入一个{}大括号对象的形式作为参数 里面的属性值为 键值对 就可修改多个属性值
+    $(&quot;div&quot;).css( { width:200, height: 200, backgroundColor: &quot;pink&quot; } )
+
+获取目标元素的某一个值 并且弹出 - 如果只传入一个属性值 就是获取该属性的值
+     var width =  $(&quot;div&quot;).css( &quot;width&quot; );
+     alert( width );
+
+ 添加css类 - 添加的css类 不需要添加. 或者# 并且可以添加多个类 只要空格隔开就行
+    $(&quot;div&quot;).addClass(&quot;box&quot;);
+
+ 移除css类
+    $(&quot;div&quot;).removeClass(&quot;box&quot;);
+
+检测是否添加了css类 - 有则返回true 没有则返回false
+    $(&quot;div&quot;).hasClass(&quot;box&quot;);
+
+切换css类 - 原理：添加类 / 移除类 - 可同时添加多个类或移除多个类
+    $(&quot;div&quot;).toggleClass(&quot;box&quot;);
+
+.eq(索引值) 索引 - 获取到索引为几的元素
+    $(&quot;div&quot;).eq(0).addClass(&quot;box&quot;);  当有两个div时 只给第一个div添加box样式
+
+$(this)代表当前
+
+.siblings()选中兄弟元素 使用siblings实现jq排他效果
+
+    &lt;body&gt;
+        (button{$})*5   添加5个button元素
+    &lt;/body&gt;
+
+    jq入口函数
+    $(function () {
+        注册事件
+        $(&quot;button&quot;).click(function (){
+        $(this) 代表当前
+        $(this).css( {backgroundColor: &quot;pink&quot;} );
+        .siblings() 只会选中兄弟元素
+        $(this).siblings().css( {backgroundColor: &quot;&quot;} )
+    })
+  })
+
+.parent() 父级关系 通过函数形式查找父级
+    $(this).parent().parent() - 找到当前元素的父级的父级
+
+.parents( &quot;body/html&quot; ) 祖先 - 通过函数的形式查找到祖先 - 需要写入查找的祖先值
+
+.children() 子级 - 通过函数的形式获取子级元素
+    $(&quot;div&quot;).children(&quot;.son&quot;)  当有两个子元素时 可直接输入需要获取的子元素
+
+.index() 索引 - 通过函数的形式获取到索引值
+    $(this).index(); - 获取当前元素的索引值
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/24/Github项目上传详情/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="My new chen">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CGFeng">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/24/Github项目上传详情/" itemprop="url">GITHUB</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-24T03:31:35+08:00">
+                2019-02-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Github项目上传详情/" itemprop="url" rel="index">
+                    <span itemprop="name">Github项目上传详情</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="1-先配置用户名和邮件"><a href="#1-先配置用户名和邮件" class="headerlink" title="1 先配置用户名和邮件"></a>1 先配置用户名和邮件</h3><pre><code>git config --global user.name xxx   配置 用户名    
+git config --global user.email xxx   配置 邮箱
+git config user.name 查看用户名
+git config user.email 查看邮箱
+</code></pre><h3 id="2-在项目的根目录下-打开git-bash-shell"><a href="#2-在项目的根目录下-打开git-bash-shell" class="headerlink" title="2 在项目的根目录下 打开git bash shell"></a>2 在项目的根目录下 打开git bash shell</h3><pre><code>1 git init  初始化 git的仓库 成功之后 会在根目录下多了一个隐藏的文件夹 .git 该文件夹便是存放版本数据的地方 千万不要手动去编辑这个文件
+2 查看git仓库的状态  git status
+3 添加所有文件 git add .
+4 再次查看git status的状态 看是否有未添加的文件
+5 把git仓库里面的文件提交到本地仓库 git commit -m &quot;操作说明&quot;
+6 查看仓库的状态 git status
+7 git remote add origin url  origin是一个变量名可随便修改 把远程仓库的地址 存放到一个变量里面 url远程仓库的地址
+8 git push -u origin master  把本地仓库推送到远程仓库  第二次推送的时候 只需要 git push 即可
+</code></pre><h3 id="3-从github克隆下来的项目-获取最新代码"><a href="#3-从github克隆下来的项目-获取最新代码" class="headerlink" title="3 从github克隆下来的项目 获取最新代码"></a>3 从github克隆下来的项目 获取最新代码</h3><pre><code>git pull 拉取更新
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/24/css选择器/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1100,498 +1759,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/23/scss的使用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="My new chen">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CGFeng">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/23/scss的使用/" itemprop="url">scss的使用</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-23T12:11:22+08:00">
-                2019-02-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/scss的使用/" itemprop="url" rel="index">
-                    <span itemprop="name">scss的使用</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="导入其它scss文件"><a href="#导入其它scss文件" class="headerlink" title="导入其它scss文件"></a>导入其它scss文件</h3><p>@import “url”</p>
-<h3 id="在scss文件中有一个规定-只要scss文件以下划线开头的就不会自动编译成css文件"><a href="#在scss文件中有一个规定-只要scss文件以下划线开头的就不会自动编译成css文件" class="headerlink" title="在scss文件中有一个规定 只要scss文件以下划线开头的就不会自动编译成css文件"></a>在scss文件中有一个规定 只要scss文件以下划线开头的就不会自动编译成css文件</h3><p>_base.scss</p>
-<h3 id="scss函数的封装"><a href="#scss函数的封装" class="headerlink" title="scss函数的封装"></a>scss函数的封装</h3><p>@mixin username($x,$y){<br>    background-image: url(“…”);<br>    background-size: 200px 200px;<br>    background-repeat: no-repeat;<br>    background-position: $x $y;<br>}</p>
-<h3 id="调用封装的scss函数"><a href="#调用封装的scss函数" class="headerlink" title="调用封装的scss函数"></a>调用封装的scss函数</h3><p>@include username(-20px,-20px);</p>
-<h3 id="scss嵌套"><a href="#scss嵌套" class="headerlink" title="scss嵌套"></a>scss嵌套</h3><p>.top_header {<br>    .top_header_title {<br>        background-color: red;<br>    }<br>    .top_header_content {<br>        background-color: yellow;<br>    }<br>}</p>
-<p><em>编译后得到的代码：是父子层级的关系 存在不好的地方：css层级太多加载时会浪费性能</em></p>
-<h3 id="优化后的scss嵌套"><a href="#优化后的scss嵌套" class="headerlink" title="优化后的scss嵌套"></a>优化后的scss嵌套</h3><p>.top_header {<br>    &amp;_title {}<br>    &amp;_content {}<br>}</p>
-<p><em>编译后得到的代码：是独一无二的</em></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/22/前端网站/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="My new chen">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CGFeng">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/22/前端网站/" itemprop="url">前端网站</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-22T20:13:16+08:00">
-                2019-02-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端网站/" itemprop="url" rel="index">
-                    <span itemprop="name">前端网站</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><img src="http://b.hiphotos.baidu.com/image/pic/item/b3b7d0a20cf431adba5a80574036acaf2fdd98d0.jpg" alt></p>
-<h3 id="开源网站"><a href="#开源网站" class="headerlink" title="开源网站"></a>开源网站</h3><p><a href="https://stackoverflow.com/" target="_blank" rel="noopener">前端开源网站</a><br><a href="https://caniuse.com/#" target="_blank" rel="noopener">前端兼容性测试网站</a></p>
-<h3 id="web字体"><a href="#web字体" class="headerlink" title="web字体"></a>web字体</h3><p><a href="https://www.iconfont.cn/" target="_blank" rel="noopener">阿里巴巴</a><br><a href="https://icomoon.io/" target="_blank" rel="noopener">英文版Font字体</a><br><a href="http://fontawesome.dashgame.com/" target="_blank" rel="noopener">FontAwesome</a></p>
-<h3 id="前端插件"><a href="#前端插件" class="headerlink" title="前端插件"></a>前端插件</h3><p><a href="https://www.swiper.com.cn/" target="_blank" rel="noopener">swiper 中文网</a><br><a href="https://github.com/alvarotrigo/fullPage.js" target="_blank" rel="noopener">fullpage 全屏滚动 github地址</a><br><a href="http://fullpage.81hu.com/" target="_blank" rel="noopener">fullpage 全屏滚动 实战演示</a><br><a href="https://daneden.github.io/animate.css/" target="_blank" rel="noopener">Animate Css3插件</a></p>
-<h3 id="前端框架"><a href="#前端框架" class="headerlink" title="前端框架"></a>前端框架</h3><p><a href="https://www.layui.com/" target="_blank" rel="noopener">Layui</a></p>
-<h3 id="移动端框架"><a href="#移动端框架" class="headerlink" title="移动端框架"></a>移动端框架</h3><p><a href="http://dev.dcloud.net.cn/mui/" target="_blank" rel="noopener">Mui</a><br><a href="http://www.dcloud.io/hellomui/" target="_blank" rel="noopener">Hello Mui组件实例</a><br><a href="http://www.bootcss.com/" target="_blank" rel="noopener">Bootstrap 用于开发响应式布局、移动设备优先的 WEB 项目</a></p>
-<h3 id="前端开源库"><a href="#前端开源库" class="headerlink" title="前端开源库"></a>前端开源库</h3><p><a href="https://www.staticfile.org/" target="_blank" rel="noopener">Staticfile CDN</a><br><a href="https://www.bootcdn.cn/" target="_blank" rel="noopener">Boot CDN</a></p>
-<h3 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h3><p><a href="https://cn.vuejs.org/" target="_blank" rel="noopener">Vue</a><br><a href="https://vuex.vuejs.org/zh/" target="_blank" rel="noopener">Vuex</a><br><a href="https://webpack.docschina.org/" target="_blank" rel="noopener">webpack</a><br><a href="http://element-cn.eleme.io/2.0/#/zh-CN" target="_blank" rel="noopener">Vue框架 适应于pc端 Element</a><br><a href="http://47.96.21.88:8082/" target="_blank" rel="noopener">Vue 后台管理系统api接口</a><br><a href="https://www.kancloud.cn/yunye/axios/234845" target="_blank" rel="noopener">Axios</a><br><a href="https://router.vuejs.org/zh/" target="_blank" rel="noopener">Vue Router介绍</a><br><a href="https://zh.nuxtjs.org/guide/" target="_blank" rel="noopener">Nuxt.js 介绍</a><br><a href="http://mpvue.com/mpvue/quickstart/" target="_blank" rel="noopener">mpvue</a></p>
-<h3 id="微信小程序"><a href="#微信小程序" class="headerlink" title="微信小程序"></a>微信小程序</h3><p><em>小程序id:wxb81dc480cbe6c823</em></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/22/搭建博客/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="My new chen">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CGFeng">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/22/搭建博客/" itemprop="url">搭建博客</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-22T19:53:54+08:00">
-                2019-02-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/搭建博客教程/" itemprop="url" rel="index">
-                    <span itemprop="name">搭建博客教程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="hexo博客教程"><a href="#hexo博客教程" class="headerlink" title="hexo博客教程"></a>hexo博客教程</h3><p><img src="http://b-ssl.duitang.com/uploads/item/201706/22/20170622202309_3hJNK.thumb.700_0.gif" alt><br>1-安装hexo前需要安装：Git   node</p>
-<p>2-进入 hexo官网：<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">https://hexo.io/zh-cn/</a></p>
-<p>3-在hexo官网首页中复制：npm install hexo-cli -g<br>注意/该代码是在git中执行/在自己喜欢的分盘或者桌面创建一个文件夹打开gitbash粘贴/执行后需要等待一段时间</p>
-<p>4-再次执行：hexo init<br>执行完该文件后退出gitbash 因为已经在文件中生成了文件 在自己创建的文件中再次打开gitbash 执行: hexo s</p>
-<p>5-安装next主题<br>    进入next主题官网 下载next主题 下载下来后解压改名成next<br>    把处理好的next包复制到hexo文件夹的themes目录中</p>
-<p>6-启动next主题 <a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">http://theme-next.iissnan.com/</a><br>   在hexo文件的根目录下 找到_config.yml文件打开该文件<br>   ctrl+F 搜索 theme: 把这里的landscape 改成 next<br>   在hexo的根目录下打开git 执行以下代码<br>   $ hexo clear  清理缓存<br>   $ hexo g 生成文件<br>   $ hexo s 启用服务器  在我们需要打开hexo文件的时候 该文件不能关掉</p>
-<p>7-设置hexo的语言-改成中文</p>
-<p>  打开hexo根目录底下的_config.yml文件<br>  找到 languge: zh-Hans<br>  再次打开gitbash执行：hexo s</p>
-<p>8-开启hexo的标签导航</p>
-<p>  1-打开next文件根目录下的_config.yml<br>  2-ctrl+F 搜索menu<br>  3-把前面加#的符号都去掉 再回到hexo刷新页面</p>
-<p>9-创建页面 - 修复打开标签分类标签时的报错</p>
-<p>  在hexo的根目录下打开gitbash<br>  ctrl+c先把hexo服务器关闭<br>  创建标签页: hexo n page tags<br>  执行完之后 会在 source目录下多出一个文件: tags<br>  打开该文件里的index.md文件<br>  title: 标题<br>  date: 时间<br>  type: “tags”  这个必须要填 不然不会显示<br>  hexo s 开启服务器 不开启服务器是无法打开hexo页面的</p>
-<p>10-主题修改 - 在next的官方文档中 根据官方文档的要求来修改</p>
-<p>  在next的根目录下打开配置文件 _config.yml<br>  ctrl+F 搜索关键字 scheme  喜欢那个主题就把前面的#号去掉就可以了<br>  Muse - 默认 Scheme，这是 NexT 最初的版本，黑白主调，大量留白<br>  Mist - Muse 的紧凑版本，整洁有序的单栏外观<br>  Pisces - 双栏 Scheme，小家碧玉似的清新</p>
-<p>11-设置头像</p>
-<p>  在next的根目录下 打开_config.yml配置文件<br>  ctrl+F 搜索关键字 avatar<br>  把avatar: 前面的#号去掉 这个images是存放图片的 你可以自己存图片进来 images在next的source目录下</p>
-<p>12-设置 作者昵称 与及 网站标题</p>
-<p>  在hexo根目录下打开配置文件_config.yml<br>  搜索找到 author: 作者昵称<br>  title: 网站标题<br>  修改完后 刷新hexo页面是无法看到改变的 需要生成文件<br>  在hexo目录下打开git 执行以下代码<br>  hexo clear 清除缓存<br>  hexo g 生成文件<br>  hexo s 开启服务器</p>
-<p>13-设置 侧边栏社交链接</p>
-<p>  打开next文件中的_config.yml配置文件<br>  搜索关键字: social<br>  把social: 前面的#去掉<br>  把github和email的#号去掉 设置自己的链接  email这个是微博 不是邮箱</p>
-<p>14-友情链接</p>
-<p>  在next文件中打开配置文件 _config.yml<br>  搜索： #links_layout: inline<br>  把links: 前面的#去掉<br>   Title: http:…. 也把友情链接的#也去掉 设置一下链接<br>   title2： http:…  可以设置多个友情链接</p>
-<p>15-新建文章</p>
-<p>  1 先关闭hexo服务器 - 在hexo的根目录下打开git - 执行hemo c 关闭服务器<br>  2 创建文章: 在hexo的根目录下 打开git 输入命令行 - hexo n 我的文章 然后回车<br>  3 开启服务器<br>  4 然后刷新页面 就可以在首页看到多出来一篇文章</p>
-<p>16-新建的文章 在标签和分类中显示出来</p>
-<p>  1 打开新建的文章.md<br>  2 在date时间下 添加:<br>  3 tags:  </p>
-<pre><code>- 导航  这两个东西是是标签页显示的东西
-- 分享
-</code></pre><p>  4 categories: 前端 这个前端是在分类页面显示的东西<br>  5  正文需要在 — 这三个横线下开始书写<br>  6 #一级标题<br>  7 ## 二级标题</p>
-<p>18-开启文章的打赏 </p>
-<p>  打开next的配置文件<br>  ctrl+f 搜索 Reward<br>  把下面三个的前面#号去掉<br>    reward_comment: 你的支持就是我最大的动力<br>    wechatpay: /images/….  微信支付二维码<br>    alipay:  /images/….    支付宝二维码</p>
-<p>19-开启订阅公众号</p>
-<p>  打开next配置文件<br>  搜索: wechat_subscriber:<br>  把wechat enabled qcode description 前面的#去掉<br>  qcode 是二维码图片<br>  description 对这个订阅的描述: 扫一扫上面的二维码可以关注我哦 </p>
-<p>20-设置头像为园形鼠标移上头像可旋转</p>
-<p>  打开next根目录上的 source css _common components sidebar 打开sidebar-author.styl<br>  在.site-author-image {<br>    添加css样式:  border-radius: 50%;  transition: 2s all;<br>  }</p>
-<p>  在给.site-author-image添加一个移动事件<br>  .site-author-image:hover { transform:rotate(360deg); }</p>
-<p>21-在首页设置阅读全文</p>
-<p>   打开next配置文件<br>   搜索：auto_excerpt<br>   enable: 把false改成true<br>   length: 设置的高度 </p>
-<p>22-给主题添加动态背景</p>
-<p>  打开next配置文件<br>  搜索：canvas<br>  下面有四个false 这四个false代表四个不同的动态样式 喜欢那个样式就把那个的样式设置成true </p>
-<p>23-给博客的左上角和右上角添加fork Github    </p>
-<p>  打开 GitHub Corners网站: <a href="http://tholman.com/github-corners/" target="_blank" rel="noopener">http://tholman.com/github-corners/</a><br>  复制一个你喜欢的样式 链接<br>  打开next 里面的layout 打开 _layout.swig文件<br>  去到23行的<div class="headband"></div> 在这一行的下面添加刚刚复制的那个链接<br>  把复制的那个链接GitHub地址改成自己的 href=”” 在这修改<br>  回到首页刷新 没生效 就得去git ctrl+c 关闭服务器<br>   hexo clear 清理缓存<br>   hexo g 生成文件<br>   hexo s 开启服务器</p>
-<p>24-valine评论系统</p>
-<p>25-添加-加载效果<br>在next目录下打开 - 搜索 - pace - 把pace的false改成true<br>在下面有这行pace_theme: pace-theme-corner-indicator  这行是你选择的是哪一个效果的代码</p>
-<p>26-g把hexo部署到github上<br>1- 配置git-bash的用户名和邮件 -  git config –global user.name xxx  -  git config –global user.email xxx<br>2- 在github上创建存储库<br>3- 在存储库上的存储库名称一定要和你的github登录名一样后面的github.io是大家都一样的 : </p>
-<p>4- 然后点击创建存储库<br>5- 设置一个秘钥 - 在gitbash中输入:  ssh-keygen -t rsa -C <a href="mailto:&#39;CGFeng-Email@qq.com" target="_blank" rel="noopener">&#39;CGFeng-Email@qq.com</a>‘  - 回车<br>     然后在下面的指示中找到给出的文件位置 拿到秘钥<br>6- 在秘钥的指定地点打开 id_rsa.pub - 全选 -复制<br>7- 回到github中 打开设置 - 选择 SSH and GPG keys 创建秘钥 - 把刚刚复制到的秘钥粘贴到里面<br>8- 测试 本地的hexo和github是否关联成功: 打开gitbash - 输入 :  ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a> 回车 - 按下面的执行 选择yes<br>然后就会提示：Hi CGFeng-Email! You’ve successfully authenticated, but GitHub does not provide shell access. 说明关联成功<br>9- 打开 hexo 配置文件 拉倒底部 - 添加<br>type: git<br>repo: <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:CGFeng-Email/cgfeng-email.github.com.git  注意：这个是刚刚创建的存储库链接<br>branch: master  保存退出<br>10- 打开git-bash<br>       输入:<br>              hexo g   这是生成文件<br>              hexo d   这是部署文件到github存储库 / 有些人这里会报错<br>              如果 hexo d 报错 则 执行： $ npm install hexo-deployer-git –saveg</p>
-<p>更新<br>hexo clear<br>hexo g<br>hexo d</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1637,7 +1809,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1648,7 +1820,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1659,7 +1831,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
