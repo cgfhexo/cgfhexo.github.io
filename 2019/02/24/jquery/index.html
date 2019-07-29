@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="CGFeng">
 <meta property="og:description" content="jquery介绍jquery最大的价值就是兼容性好 主要使用于pc端 查看网站是否使用jquerywindow.$ 获取网站所使用的jquery的版本window.$.fn.jquery jquery的入口函数$( function () {} )  等同于 js的window.onload = function () {} jquery的事件类型$(&amp;quot;div&amp;quot;).click(">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-29T07:29:48.904Z">
+<meta property="og:updated_time" content="2019-07-29T09:23:28.227Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jquery">
 <meta name="twitter:description" content="jquery介绍jquery最大的价值就是兼容性好 主要使用于pc端 查看网站是否使用jquerywindow.$ 获取网站所使用的jquery的版本window.$.fn.jquery jquery的入口函数$( function () {} )  等同于 js的window.onload = function () {} jquery的事件类型$(&amp;quot;div&amp;quot;).click(">
@@ -350,7 +350,10 @@ $(&quot;div&quot;).show( 1000 ) 显示
 $(&quot;div&quot;).mouseover() 鼠标移入
 $(&quot;div&quot;).mouseout() 鼠标移出
 $(&quot;div&quot;).hover(function(){} , function (){})  代表着移入与移出 - 第一个函数代表移入 第二个代表移出
-</code></pre><h3 id="jquery选择器"><a href="#jquery选择器" class="headerlink" title="jquery选择器"></a>jquery选择器</h3><pre><code>1 $(&quot;div&quot;) 属性选择器
+</code></pre><h3 id="注册事件"><a href="#注册事件" class="headerlink" title="注册事件"></a>注册事件</h3><p> <strong> 当值发生改变时触发的函数 </strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.change( function()&#123;&#125; ) </span><br><span class="line">.change( function()&#123;</span><br><span class="line">    console.log(123)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p><strong> 循环遍历 </strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.each()&#123; function &#125; 循环遍历 获取一个总值</span><br><span class="line">    // 商品总价</span><br><span class="line">    var sum = 0;</span><br><span class="line">    $(&apos;.num_price&apos;).each(function (i) &#123;</span><br><span class="line">    var val = Number($(this).text());</span><br><span class="line">    sum += val;</span><br><span class="line">    console.log(sum);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p><strong> 文档加载后 激活函数 </strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(document).ready(function () &#123;&#125;)  文档加载后 激活函数</span><br><span class="line">$(document).raady( function ()&#123;</span><br><span class="line">    console.log(123)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h3 id="jquery选择器"><a href="#jquery选择器" class="headerlink" title="jquery选择器"></a>jquery选择器</h3><pre><code>1 $(&quot;div&quot;) 属性选择器
 2 $(&quot;.div&quot;) 类选择器
 3 $(&quot;#div&quot;) id选择器
 4 $(&quot;div:eq(0)&quot;) 伪类选择器 - 索引
@@ -411,12 +414,13 @@ $(this)代表当前
 
 .index() 索引 - 通过函数的形式获取到索引值
     $(this).index(); - 获取当前元素的索引值
-</code></pre><h2 id="jQuery中ajax-get-post请求的语法"><a href="#jQuery中ajax-get-post请求的语法" class="headerlink" title="jQuery中ajax get/post请求的语法"></a>jQuery中ajax get/post请求的语法</h2><p><strong>作用 ：异步的动态网站交互应用技术 无刷新的情况下 实现数据的交互</strong></p>
-<p><em>jQuery提供Ajax封装</em><br>$.get() 以GET方式发起Ajax请求 只能发送get请求  只有4个参数<br>1 - url 必填项 规定将请求发送到那个URL<br>2 - data 可选 规定连同请求发送到服务器的数据 参数的意思<br>3 - success 可选规定当请求成功时运行的函数<br>4 - dataType 可选 规定预计的服务器响应的数据类型 默认的jQuery会智能判断</p>
-<p>$.post() 以POST方式发起ajax请求 只能发送post请求 只有4个参数</p>
-<p><strong>jQuery中的ajax</strong></p>
-<p><em>$.ajax({}) 可配置的方式发起Ajax请求</em><br>1 - url 接口地址<br>2 - type 请求方式<br>3 - timeout 设定请求超时时间 就是设置一个默认请求的时间 超过时间 数据还没回来 就不要了 要是请求成功就响应success 不成功就响应error<br>4 - dataType 告诉底层$.ajax将返回来的数据以何种格式解析 人为的设置底层$.ajax用哪一种语法解析 支持 json  xml  jsonp<br>5 - data 发送请求数据 参数的意思<br>6 - beforeSend:function () { return false } 请求发起前调用 before：在…之前 send：发送 用于：在发送之前需要做的业务逻辑,用于页面中数据的判断 return false 会阻止请求的发送<br>7 - success 成功响应后调用的函数 一般用于渲染页面<br>8 - error 错误响应时调用<br>9 - compleat 响应完成时的响应的函数  无论成功还是失败 一般用于数据的初始化</p>
-<h2 id="zepto请求方式"><a href="#zepto请求方式" class="headerlink" title="zepto请求方式"></a>zepto请求方式</h2><p>$.get(“url”,”data”,成功的回调);</p>
+</code></pre><h3 id="jQuery中ajax-get-post请求的语法"><a href="#jQuery中ajax-get-post请求的语法" class="headerlink" title="jQuery中ajax get/post请求的语法"></a>jQuery中ajax get/post请求的语法</h3><p><strong>作用 ：异步的动态网站交互应用技术 无刷新的情况下 实现数据的交互</strong><br><em>jQuery提供Ajax封装</em><br>$.get() 以GET方式发起Ajax请求 只能发送get请求  只有4个参数<br>1 - url 必填项 规定将请求发送到那个URL<br>2 - data 可选 规定连同请求发送到服务器的数据 参数的意思<br>3 - success 可选规定当请求成功时运行的函数</p>
+<h2 id="4-dataType-可选-规定预计的服务器响应的数据类型-默认的jQuery会智能判断"><a href="#4-dataType-可选-规定预计的服务器响应的数据类型-默认的jQuery会智能判断" class="headerlink" title="4 - dataType 可选 规定预计的服务器响应的数据类型 默认的jQuery会智能判断"></a>4 - dataType 可选 规定预计的服务器响应的数据类型 默认的jQuery会智能判断</h2><p>$.post() 以POST方式发起ajax请求 只能发送post请求 只有4个参数</p>
+<hr>
+<hr>
+<hr>
+<p><strong>jQuery中的ajax</strong><br><em>$.ajax({}) 可配置的方式发起Ajax请求</em><br>1 - url 接口地址<br>2 - type 请求方式<br>3 - timeout 设定请求超时时间 就是设置一个默认请求的时间 超过时间 数据还没回来 就不要了 要是请求成功就响应success 不成功就响应error<br>4 - dataType 告诉底层$.ajax将返回来的数据以何种格式解析 人为的设置底层$.ajax用哪一种语法解析 支持 json  xml  jsonp<br>5 - data 发送请求数据 参数的意思<br>6 - beforeSend:function () { return false } 请求发起前调用 before：在…之前 send：发送 用于：在发送之前需要做的业务逻辑,用于页面中数据的判断 return false 会阻止请求的发送<br>7 - success 成功响应后调用的函数 一般用于渲染页面<br>8 - error 错误响应时调用<br>9 - compleat 响应完成时的响应的函数  无论成功还是失败 一般用于数据的初始化</p>
+<h3 id="zepto请求方式"><a href="#zepto请求方式" class="headerlink" title="zepto请求方式"></a>zepto请求方式</h3><p>$.get(“url”,”data”,成功的回调);</p>
 <p>$.post(“url”,”data”,成功的回调);</p>
 <p>$.get(“url”,”data”,function (result){<br>    console.log(result);<br>})</p>
 
@@ -459,8 +463,8 @@ $(this)代表当前
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/02/28/vue指令-详解/" rel="prev" title="vue基础">
-                vue基础 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/06/js/" rel="prev" title="js">
+                js <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -538,7 +542,7 @@ $(this)代表当前
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -549,7 +553,7 @@ $(this)代表当前
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -560,7 +564,7 @@ $(this)代表当前
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -609,7 +613,7 @@ $(this)代表当前
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#jquery介绍"><span class="nav-number">1.</span> <span class="nav-text">jquery介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看网站是否使用jquery"><span class="nav-number">2.</span> <span class="nav-text">查看网站是否使用jquery</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取网站所使用的jquery的版本"><span class="nav-number">3.</span> <span class="nav-text">获取网站所使用的jquery的版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jquery的入口函数"><span class="nav-number">4.</span> <span class="nav-text">jquery的入口函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jquery的事件类型"><span class="nav-number">5.</span> <span class="nav-text">jquery的事件类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jquery选择器"><span class="nav-number">6.</span> <span class="nav-text">jquery选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jquery的属性方法"><span class="nav-number">7.</span> <span class="nav-text">jquery的属性方法</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery中ajax-get-post请求的语法"><span class="nav-number"></span> <span class="nav-text">jQuery中ajax get/post请求的语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zepto请求方式"><span class="nav-number"></span> <span class="nav-text">zepto请求方式</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#jquery介绍"><span class="nav-number">1.</span> <span class="nav-text">jquery介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看网站是否使用jquery"><span class="nav-number">2.</span> <span class="nav-text">查看网站是否使用jquery</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取网站所使用的jquery的版本"><span class="nav-number">3.</span> <span class="nav-text">获取网站所使用的jquery的版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jquery的入口函数"><span class="nav-number">4.</span> <span class="nav-text">jquery的入口函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jquery的事件类型"><span class="nav-number">5.</span> <span class="nav-text">jquery的事件类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注册事件"><span class="nav-number">6.</span> <span class="nav-text">注册事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jquery选择器"><span class="nav-number">7.</span> <span class="nav-text">jquery选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jquery的属性方法"><span class="nav-number">8.</span> <span class="nav-text">jquery的属性方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery中ajax-get-post请求的语法"><span class="nav-number">9.</span> <span class="nav-text">jQuery中ajax get/post请求的语法</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#4-dataType-可选-规定预计的服务器响应的数据类型-默认的jQuery会智能判断"><span class="nav-number"></span> <span class="nav-text">4 - dataType 可选 规定预计的服务器响应的数据类型 默认的jQuery会智能判断</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#zepto请求方式"><span class="nav-number">1.</span> <span class="nav-text">zepto请求方式</span></a></li></ol></li></div>
             
 
           </div>
