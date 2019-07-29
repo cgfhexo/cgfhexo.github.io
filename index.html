@@ -246,6 +246,153 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/29/mpvue/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="My new chen">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CGFeng">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/29/mpvue/" itemprop="url">mpvue</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-29T17:33:02+08:00">
+                2019-07-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/mpvue/" itemprop="url" rel="index">
+                    <span itemprop="name">mpvue</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="scss"><a href="#scss" class="headerlink" title="scss"></a>scss</h3><p>简介: 在vue文件中安装 scss<br>安装包: npm install sass-loader node-sass –save-dev<br>使用场景:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;style scoped lang=scss&gt;</span><br><span class="line">    @import &quot;./style.scss&quot;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="promise"><a href="#promise" class="headerlink" title="promise"></a>promise</h3><p>简介: 在MPvue中的methods请求数据中 如果一次性请求多个请求 理论上是可行的 但是如果一次同时请求超过五个 服务器/浏览器就会炸了 另外一种方法就是多重嵌套的方法 但该方法对于代码的整体合理性不理想 为解决这一问题 使用promise方法</p>
+<p> 封装: promise用来请求 wx.request<br> 封装的函数 一般都存储在Mpvue 目录的 utils工具文件夹中<br> 封装: 存储在utils文件夹中  是一个js文件 一般命名为:  request.js<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function request( url,methods = “GET” ) &#123;</span><br><span class="line">    rteturn new Promise ( (resolve,reject) =&gt; &#123;</span><br><span class="line">        wx.request(&#123;</span><br><span class="line">        url: url,</span><br><span class="line">        methods: methods,</span><br><span class="line">        success:  (res) = &gt; &#123;</span><br><span class="line">            resolve(res);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong> 封装完成 暴露出去 </strong><br>export default request;</p>
+<p><strong> 使用场景: </strong><br>请求接受 暴露出来的request<br>import request from “../../urils/request.js”  最好加上.js 不然默认会选择.vue文件</p>
+<p>request(“url” , methods).then ( (res) =&gt; {<br>    console.log(res)<br>    }).then( () =&gt; {<br>    request(“url”).then( (res)=&gt; {<br>    console.log(res)<br>    })<br>})</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/29/template模板/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1344,16 +1491,17 @@ $(this)代表当前
 
 .index() 索引 - 通过函数的形式获取到索引值
     $(this).index(); - 获取当前元素的索引值
-</code></pre><h3 id="jQuery中ajax-get-post请求的语法"><a href="#jQuery中ajax-get-post请求的语法" class="headerlink" title="jQuery中ajax get/post请求的语法"></a>jQuery中ajax get/post请求的语法</h3><p><strong>作用 ：异步的动态网站交互应用技术 无刷新的情况下 实现数据的交互</strong><br><em>jQuery提供Ajax封装</em><br>$.get() 以GET方式发起Ajax请求 只能发送get请求  只有4个参数<br>1 - url 必填项 规定将请求发送到那个URL<br>2 - data 可选 规定连同请求发送到服务器的数据 参数的意思<br>3 - success 可选规定当请求成功时运行的函数</p>
+</code></pre><h3 id="jQuery中ajax-get-post请求的语法"><a href="#jQuery中ajax-get-post请求的语法" class="headerlink" title="jQuery中ajax get/post请求的语法"></a>jQuery中ajax get/post请求的语法</h3><p><strong> 作用: 异步的动态网站交互应用技术 无刷新的情况下 实现数据的交互 </strong><br><strong> jQuery提供Ajax封装 </strong><br>$.get() 以GET方式发起Ajax请求 只能发送get请求  只有4个参数<br>1 - url 必填项 规定将请求发送到那个URL<br>2 - data 可选 规定连同请求发送到服务器的数据 参数的意思<br>3 - success 可选规定当请求成功时运行的函数</p>
 <h2 id="4-dataType-可选-规定预计的服务器响应的数据类型-默认的jQuery会智能判断"><a href="#4-dataType-可选-规定预计的服务器响应的数据类型-默认的jQuery会智能判断" class="headerlink" title="4 - dataType 可选 规定预计的服务器响应的数据类型 默认的jQuery会智能判断"></a>4 - dataType 可选 规定预计的服务器响应的数据类型 默认的jQuery会智能判断</h2><p>$.post() 以POST方式发起ajax请求 只能发送post请求 只有4个参数</p>
 <hr>
 <hr>
-<hr>
-<p><strong>jQuery中的ajax</strong><br><em>$.ajax({}) 可配置的方式发起Ajax请求</em><br>1 - url 接口地址<br>2 - type 请求方式<br>3 - timeout 设定请求超时时间 就是设置一个默认请求的时间 超过时间 数据还没回来 就不要了 要是请求成功就响应success 不成功就响应error<br>4 - dataType 告诉底层$.ajax将返回来的数据以何种格式解析 人为的设置底层$.ajax用哪一种语法解析 支持 json  xml  jsonp<br>5 - data 发送请求数据 参数的意思<br>6 - beforeSend:function () { return false } 请求发起前调用 before：在…之前 send：发送 用于：在发送之前需要做的业务逻辑,用于页面中数据的判断 return false 会阻止请求的发送<br>7 - success 成功响应后调用的函数 一般用于渲染页面<br>8 - error 错误响应时调用<br>9 - compleat 响应完成时的响应的函数  无论成功还是失败 一般用于数据的初始化</p>
+<p><strong> jQuery中的ajax </strong><br><strong> $.ajax({}) 可配置的方式发起Ajax请求 </strong><br>1 - url 接口地址<br>2 - type 请求方式<br>3 - timeout 设定请求超时时间 就是设置一个默认请求的时间 超过时间 数据还没回来 就不要了 要是请求成功就响应success 不成功就响应error<br>4 - dataType 告诉底层$.ajax将返回来的数据以何种格式解析 人为的设置底层$.ajax用哪一种语法解析 支持 json  xml  jsonp<br>5 - data 发送请求数据 参数的意思<br>6 - beforeSend:function () { return false } 请求发起前调用 before：在…之前 send：发送 用于：在发送之前需要做的业务逻辑,用于页面中数据的判断 return false 会阻止请求的发送<br>7 - success 成功响应后调用的函数 一般用于渲染页面<br>8 - error 错误响应时调用<br>9 - compleat 响应完成时的响应的函数  无论成功还是失败 一般用于数据的初始化</p>
 <h3 id="zepto请求方式"><a href="#zepto请求方式" class="headerlink" title="zepto请求方式"></a>zepto请求方式</h3><p>$.get(“url”,”data”,成功的回调);</p>
 <p>$.post(“url”,”data”,成功的回调);</p>
 <p>$.get(“url”,”data”,function (result){<br>    console.log(result);<br>})</p>
-
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><h3 id="attr"><a href="#attr" class="headerlink" title=".attr()"></a>.attr()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.attr() 能获取到 HTML标签中data-定义的值</span><br><span class="line">HTML:</span><br><span class="line">&lt;img data-src=”../../img” src=”../../img” /&gt;</span><br><span class="line">.attr(“data-src”)  =&gt; 得到data-src中定义的值</span><br><span class="line">.attr(“src”,”srcData”)  =&gt; 传入两个值就是把srcData的值替换/赋值原来的src的值</span><br></pre></td></tr></table></figure>
+<h3 id="动态事件"><a href="#动态事件" class="headerlink" title="动态事件"></a>动态事件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">动态后台事件时 需要使用监听来绑定事件</span><br><span class="line">$(“.index .list”).on(“click”,”.unit”,function ()&#123;</span><br><span class="line">console.log(123)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="form-gt-提交时获取input-name-值"><a href="#form-gt-提交时获取input-name-值" class="headerlink" title="form -&gt; 提交时获取input - name 值"></a>form -&gt; 提交时获取input - name 值</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">form 表单里面 拿到input标签定义的name值</span><br><span class="line">var data = $(&apos;#form&apos;).serialize();  // 这里的.serialize() 拿到的整个form表单的name 不是单一的</span><br><span class="line">search 自动提升框</span><br><span class="line">autocomplete = “on ” // 默认，启用自动完成 </span><br><span class="line">autocomplete = “off” // 规定禁用自动完成功能</span><br></pre></td></tr></table></figure>
           
         
       
@@ -1700,151 +1848,6 @@ git config user.email 查看邮箱
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/23/移动端布局/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="My new chen">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CGFeng">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/23/移动端布局/" itemprop="url">移动端布局</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-23T13:40:35+08:00">
-                2019-02-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/移动端布局/" itemprop="url" rel="index">
-                    <span itemprop="name">移动端布局</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="布局思路"><a href="#布局思路" class="headerlink" title="布局思路"></a>布局思路</h3><p>0 这种布局在所有的页面都是通用的 所以写在公用样式里面<br>1 头部和尾部定死位置<br>2 中间模块 高度 = 屏幕的高度 - 头部高度 - 尾部高度<br>  中间模块里面的子元素高度 肯定高于中间这个大模块<br>3 html 和 body 高度：100%<br>4 body 加入 padding-top: 头部的高度; padding-bottom: 尾部的高度;<br>5 中间模块高度: 100%;</p>
-<h3 id="页面布局样式common-css"><a href="#页面布局样式common-css" class="headerlink" title="页面布局样式common.css"></a>页面布局样式common.css</h3><p>html,body {<br>    height: 100%;<br>}</p>
-<p>body {<br>    padding-top: 45px;<br>    padding-bottom: 45px;<br>}</p>
-<p>.pyg_middle {<br>    height: 100%;<br>    overflow: scroll;<br>}</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1895,7 +1898,7 @@ git config user.email 查看邮箱
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1906,7 +1909,7 @@ git config user.email 查看邮箱
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1917,7 +1920,7 @@ git config user.email 查看邮箱
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
