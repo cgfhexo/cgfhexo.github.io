@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="CGFeng">
 <meta property="og:description" content="scss简介: 在vue文件中安装 scss安装包: npm install sass-loader node-sass –save-dev使用场景:123&amp;lt;style scoped lang=scss&amp;gt;    @import &amp;quot;./style.scss&amp;quot;&amp;lt;/style&amp;gt; promise简介: 在MPvue中的methods请求数据中 如果一次性请求多个">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-29T09:36:45.885Z">
+<meta property="og:updated_time" content="2019-07-29T09:39:13.915Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mpvue">
 <meta name="twitter:description" content="scss简介: 在vue文件中安装 scss安装包: npm install sass-loader node-sass –save-dev使用场景:123&amp;lt;style scoped lang=scss&amp;gt;    @import &amp;quot;./style.scss&amp;quot;&amp;lt;/style&amp;gt; promise简介: 在MPvue中的methods请求数据中 如果一次性请求多个">
@@ -343,8 +343,7 @@
 <h3 id="promise"><a href="#promise" class="headerlink" title="promise"></a>promise</h3><p>简介: 在MPvue中的methods请求数据中 如果一次性请求多个请求 理论上是可行的 但是如果一次同时请求超过五个 服务器/浏览器就会炸了 另外一种方法就是多重嵌套的方法 但该方法对于代码的整体合理性不理想 为解决这一问题 使用promise方法</p>
 <p> 封装: promise用来请求 wx.request<br> 封装的函数 一般都存储在Mpvue 目录的 utils工具文件夹中<br> 封装: 存储在utils文件夹中  是一个js文件 一般命名为:  request.js<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function request( url,methods = “GET” ) &#123;</span><br><span class="line">    rteturn new Promise ( (resolve,reject) =&gt; &#123;</span><br><span class="line">        wx.request(&#123;</span><br><span class="line">        url: url,</span><br><span class="line">        methods: methods,</span><br><span class="line">        success:  (res) = &gt; &#123;</span><br><span class="line">            resolve(res);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p><strong> 封装完成 暴露出去 </strong><br>export default request;</p>
-<p><strong> 使用场景: </strong><br>请求接受 暴露出来的request<br>import request from “../../urils/request.js”  最好加上.js 不然默认会选择.vue文件</p>
-<p>request(“url” , methods).then ( (res) =&gt; {<br>    console.log(res)<br>    }).then( () =&gt; {<br>    request(“url”).then( (res)=&gt; {<br>    console.log(res)<br>    })<br>})</p>
+<p><strong> 使用场景: </strong><br>请求接受 暴露出来的request<br>import request from “../../urils/request.js”  最好加上.js 不然默认会选择.vue文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">request(“url” , methods).then ( (res) =&gt; &#123;</span><br><span class="line">    console.log(res)</span><br><span class="line">    &#125;).then( () =&gt; &#123;</span><br><span class="line">    request(“url”).then( (res)=&gt; &#123;</span><br><span class="line">    console.log(res)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
