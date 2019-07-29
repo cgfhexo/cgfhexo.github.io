@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-corner-indicator.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="jquery,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="jquery介绍jquery最大的价值就是兼容性好 主要使用于pc端 查看网站是否使用jquerywindow.$ 获取网站所使用的jquery的版本window.$.fn.jquery jquery的入口函数$( function () {} )  等同于 js的window.onload = function () {} jquery的事件类型$(&amp;quot;div&amp;quot;).click(">
+<meta name="keywords" content="jquery">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jquery">
+<meta property="og:url" content="http://yoursite.com/2019/02/24/jquery/index.html">
+<meta property="og:site_name" content="CGFeng">
+<meta property="og:description" content="jquery介绍jquery最大的价值就是兼容性好 主要使用于pc端 查看网站是否使用jquerywindow.$ 获取网站所使用的jquery的版本window.$.fn.jquery jquery的入口函数$( function () {} )  等同于 js的window.onload = function () {} jquery的事件类型$(&amp;quot;div&amp;quot;).click(">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-07-29T07:29:48.904Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jquery">
+<meta name="twitter:description" content="jquery介绍jquery最大的价值就是兼容性好 主要使用于pc端 查看网站是否使用jquerywindow.$ 获取网站所使用的jquery的版本window.$.fn.jquery jquery的入口函数$( function () {} )  等同于 js的window.onload = function () {} jquery的事件类型$(&amp;quot;div&amp;quot;).click(">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/02/24/jquery/">
+
+
+
+
+
+  <title>jquery | CGFeng</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/CGFeng-Email" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">CGFeng</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/24/jquery/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="My new chen">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CGFeng">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">jquery</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-24T03:34:43+08:00">
+                2019-02-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/jquery/" itemprop="url" rel="index">
+                    <span itemprop="name">jquery</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="jquery介绍"><a href="#jquery介绍" class="headerlink" title="jquery介绍"></a>jquery介绍</h3><pre><code>jquery最大的价值就是兼容性好
+主要使用于pc端
+</code></pre><h3 id="查看网站是否使用jquery"><a href="#查看网站是否使用jquery" class="headerlink" title="查看网站是否使用jquery"></a>查看网站是否使用jquery</h3><pre><code>window.$
+</code></pre><h3 id="获取网站所使用的jquery的版本"><a href="#获取网站所使用的jquery的版本" class="headerlink" title="获取网站所使用的jquery的版本"></a>获取网站所使用的jquery的版本</h3><pre><code>window.$.fn.jquery
+</code></pre><h3 id="jquery的入口函数"><a href="#jquery的入口函数" class="headerlink" title="jquery的入口函数"></a>jquery的入口函数</h3><pre><code>$( function () {} )  等同于 js的window.onload = function () {}
+</code></pre><h3 id="jquery的事件类型"><a href="#jquery的事件类型" class="headerlink" title="jquery的事件类型"></a>jquery的事件类型</h3><pre><code>$(&quot;div&quot;).click(  function (){} )  点击
+$(&quot;div&quot;).hide(1000)  隐藏 参数 - 隐藏的时间
+$(&quot;div&quot;).show( 1000 ) 显示
+$(&quot;div&quot;).mouseover() 鼠标移入
+$(&quot;div&quot;).mouseout() 鼠标移出
+$(&quot;div&quot;).hover(function(){} , function (){})  代表着移入与移出 - 第一个函数代表移入 第二个代表移出
+</code></pre><h3 id="jquery选择器"><a href="#jquery选择器" class="headerlink" title="jquery选择器"></a>jquery选择器</h3><pre><code>1 $(&quot;div&quot;) 属性选择器
+2 $(&quot;.div&quot;) 类选择器
+3 $(&quot;#div&quot;) id选择器
+4 $(&quot;div:eq(0)&quot;) 伪类选择器 - 索引
+4.1 $(&quot;li:even&quot;) 伪类选择器 - 偶数
+5 $(&apos;[type=&quot;button&quot;]&apos;) 
+6 $(&quot;:disabled&quot;) 获取到被禁用的元素
+7 $(&quot;.father .son&quot;) 获取到子元素.son
+7.1 $(&quot;.father&quot;).children(&quot;.son&quot;) 取到子元素.son
+8 $(&quot;.btn1,.btn2&quot;)  并集选择器 同时获取到两个元素
+</code></pre><h3 id="jquery的属性方法"><a href="#jquery的属性方法" class="headerlink" title="jquery的属性方法"></a>jquery的属性方法</h3><pre><code>控制(修改)css的样式  -  以传入一个{}大括号对象的形式作为参数 里面的属性值为 键值对 就可修改多个属性值
+    $(&quot;div&quot;).css( { width:200, height: 200, backgroundColor: &quot;pink&quot; } )
+
+获取目标元素的某一个值 并且弹出 - 如果只传入一个属性值 就是获取该属性的值
+     var width =  $(&quot;div&quot;).css( &quot;width&quot; );
+     alert( width );
+
+ 添加css类 - 添加的css类 不需要添加. 或者# 并且可以添加多个类 只要空格隔开就行
+    $(&quot;div&quot;).addClass(&quot;box&quot;);
+
+ 移除css类
+    $(&quot;div&quot;).removeClass(&quot;box&quot;);
+
+检测是否添加了css类 - 有则返回true 没有则返回false
+    $(&quot;div&quot;).hasClass(&quot;box&quot;);
+
+切换css类 - 原理：添加类 / 移除类 - 可同时添加多个类或移除多个类
+    $(&quot;div&quot;).toggleClass(&quot;box&quot;);
+
+.eq(索引值) 索引 - 获取到索引为几的元素
+    $(&quot;div&quot;).eq(0).addClass(&quot;box&quot;);  当有两个div时 只给第一个div添加box样式
+
+$(this)代表当前
+
+.siblings()选中兄弟元素 使用siblings实现jq排他效果
+
+    &lt;body&gt;
+        (button{$})*5   添加5个button元素
+    &lt;/body&gt;
+
+    jq入口函数
+    $(function () {
+        注册事件
+        $(&quot;button&quot;).click(function (){
+        $(this) 代表当前
+        $(this).css( {backgroundColor: &quot;pink&quot;} );
+        .siblings() 只会选中兄弟元素
+        $(this).siblings().css( {backgroundColor: &quot;&quot;} )
+    })
+  })
+
+.parent() 父级关系 通过函数形式查找父级
+    $(this).parent().parent() - 找到当前元素的父级的父级
+
+.parents( &quot;body/html&quot; ) 祖先 - 通过函数的形式查找到祖先 - 需要写入查找的祖先值
+
+.children() 子级 - 通过函数的形式获取子级元素
+    $(&quot;div&quot;).children(&quot;.son&quot;)  当有两个子元素时 可直接输入需要获取的子元素
+
+.index() 索引 - 通过函数的形式获取到索引值
+    $(this).index(); - 获取当前元素的索引值
+</code></pre><h2 id="jQuery中ajax-get-post请求的语法"><a href="#jQuery中ajax-get-post请求的语法" class="headerlink" title="jQuery中ajax get/post请求的语法"></a>jQuery中ajax get/post请求的语法</h2><p><strong>作用 ：异步的动态网站交互应用技术 无刷新的情况下 实现数据的交互</strong></p>
+<p><em>jQuery提供Ajax封装</em><br>$.get() 以GET方式发起Ajax请求 只能发送get请求  只有4个参数<br>1 - url 必填项 规定将请求发送到那个URL<br>2 - data 可选 规定连同请求发送到服务器的数据 参数的意思<br>3 - success 可选规定当请求成功时运行的函数<br>4 - dataType 可选 规定预计的服务器响应的数据类型 默认的jQuery会智能判断</p>
+<p>$.post() 以POST方式发起ajax请求 只能发送post请求 只有4个参数</p>
+<p><strong>jQuery中的ajax</strong></p>
+<p><em>$.ajax({}) 可配置的方式发起Ajax请求</em><br>1 - url 接口地址<br>2 - type 请求方式<br>3 - timeout 设定请求超时时间 就是设置一个默认请求的时间 超过时间 数据还没回来 就不要了 要是请求成功就响应success 不成功就响应error<br>4 - dataType 告诉底层$.ajax将返回来的数据以何种格式解析 人为的设置底层$.ajax用哪一种语法解析 支持 json  xml  jsonp<br>5 - data 发送请求数据 参数的意思<br>6 - beforeSend:function () { return false } 请求发起前调用 before：在…之前 send：发送 用于：在发送之前需要做的业务逻辑,用于页面中数据的判断 return false 会阻止请求的发送<br>7 - success 成功响应后调用的函数 一般用于渲染页面<br>8 - error 错误响应时调用<br>9 - compleat 响应完成时的响应的函数  无论成功还是失败 一般用于数据的初始化</p>
+<h2 id="zepto请求方式"><a href="#zepto请求方式" class="headerlink" title="zepto请求方式"></a>zepto请求方式</h2><p>$.get(“url”,”data”,成功的回调);</p>
+<p>$.post(“url”,”data”,成功的回调);</p>
+<p>$.get(“url”,”data”,function (result){<br>    console.log(result);<br>})</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/jquery/" rel="tag"># jquery</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/24/Github项目上传详情/" rel="next" title="GITHUB">
+                <i class="fa fa-chevron-left"></i> GITHUB
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/28/vue指令-详解/" rel="prev" title="vue基础">
+                vue基础 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">My new chen</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/CGFeng-Email" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#jquery介绍"><span class="nav-number">1.</span> <span class="nav-text">jquery介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看网站是否使用jquery"><span class="nav-number">2.</span> <span class="nav-text">查看网站是否使用jquery</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取网站所使用的jquery的版本"><span class="nav-number">3.</span> <span class="nav-text">获取网站所使用的jquery的版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jquery的入口函数"><span class="nav-number">4.</span> <span class="nav-text">jquery的入口函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jquery的事件类型"><span class="nav-number">5.</span> <span class="nav-text">jquery的事件类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jquery选择器"><span class="nav-number">6.</span> <span class="nav-text">jquery选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jquery的属性方法"><span class="nav-number">7.</span> <span class="nav-text">jquery的属性方法</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery中ajax-get-post请求的语法"><span class="nav-number"></span> <span class="nav-text">jQuery中ajax get/post请求的语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zepto请求方式"><span class="nav-number"></span> <span class="nav-text">zepto请求方式</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">My new chen</span>
+
+  
+</div>
+
+<!--
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+-->
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
