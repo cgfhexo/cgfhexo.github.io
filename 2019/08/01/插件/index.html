@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="iScrolliScroll官网1、 先把原生的滚动条效果 隐藏掉  也就是把 overflow: scroll; 改成 overflow: hidden;2、 必须等标签都渲染生成了 再去做初始化 否则没有效果  因为: 有了标签才有高度 才能调用滚动效果3、 点击当前标签 往上置顶    3.1、 需要结合iScrool来实现    3.2、 也就是拿到刚刚初始化滚动标签的对象 ， 所以这个对">
+<meta name="description" content="iScrolliScroll官网1、 先把原生的滚动条效果 隐藏掉  也就是把 overflow: scroll; 改成 overflow: hidden; 2、 必须等标签都渲染生成了 再去做初始化 否则没有效果因为: 有了标签才有高度 才能调用滚动效果 图片 不一样 有标签结构了 不一定马上就有高度 因为内容还没有请求回来 图片标签 有内容了 才有高度 图片请求回来了 有一点高度了 但是并不是">
 <meta name="keywords" content="插件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="插件">
 <meta property="og:url" content="http://yoursite.com/2019/08/01/插件/index.html">
 <meta property="og:site_name" content="CGFeng">
-<meta property="og:description" content="iScrolliScroll官网1、 先把原生的滚动条效果 隐藏掉  也就是把 overflow: scroll; 改成 overflow: hidden;2、 必须等标签都渲染生成了 再去做初始化 否则没有效果  因为: 有了标签才有高度 才能调用滚动效果3、 点击当前标签 往上置顶    3.1、 需要结合iScrool来实现    3.2、 也就是拿到刚刚初始化滚动标签的对象 ， 所以这个对">
+<meta property="og:description" content="iScrolliScroll官网1、 先把原生的滚动条效果 隐藏掉  也就是把 overflow: scroll; 改成 overflow: hidden; 2、 必须等标签都渲染生成了 再去做初始化 否则没有效果因为: 有了标签才有高度 才能调用滚动效果 图片 不一样 有标签结构了 不一定马上就有高度 因为内容还没有请求回来 图片标签 有内容了 才有高度 图片请求回来了 有一点高度了 但是并不是">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-01T02:14:16.724Z">
+<meta property="og:updated_time" content="2019-08-01T02:47:52.140Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="插件">
-<meta name="twitter:description" content="iScrolliScroll官网1、 先把原生的滚动条效果 隐藏掉  也就是把 overflow: scroll; 改成 overflow: hidden;2、 必须等标签都渲染生成了 再去做初始化 否则没有效果  因为: 有了标签才有高度 才能调用滚动效果3、 点击当前标签 往上置顶    3.1、 需要结合iScrool来实现    3.2、 也就是拿到刚刚初始化滚动标签的对象 ， 所以这个对">
+<meta name="twitter:description" content="iScrolliScroll官网1、 先把原生的滚动条效果 隐藏掉  也就是把 overflow: scroll; 改成 overflow: hidden; 2、 必须等标签都渲染生成了 再去做初始化 否则没有效果因为: 有了标签才有高度 才能调用滚动效果 图片 不一样 有标签结构了 不一定马上就有高度 因为内容还没有请求回来 图片标签 有内容了 才有高度 图片请求回来了 有一点高度了 但是并不是">
 
 
 
@@ -339,9 +339,19 @@
       
 
       
-        <h3 id="iScroll"><a href="#iScroll" class="headerlink" title="iScroll"></a>iScroll</h3><p><a href="https://www.kancloud.cn/kancloud/iscroll-api/77883" target="_blank" rel="noopener">iScroll官网</a><br>1、 先把原生的滚动条效果 隐藏掉  也就是把 overflow: scroll; 改成 overflow: hidden;<br>2、 必须等标签都渲染生成了 再去做初始化 否则没有效果  因为: 有了标签才有高度 才能调用滚动效果<br>3、 点击当前标签 往上置顶<br>    3.1、 需要结合iScrool来实现<br>    3.2、 也就是拿到刚刚初始化滚动标签的对象 ， 所以这个对象必须做全局的对象<br>    3.3、 主要用到下面的方法<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">scrollToElement(el, time, offsetX, offsetY, easing)</span><br><span class="line"></span><br><span class="line">这是一个很有用的方法，你会喜欢它的。</span><br><span class="line"></span><br><span class="line">在这个方法中只有一个强制的参数就是el。传递一个元素或者一个选择器，iScroll将尝试滚动到这个元素的左上角位置。</span><br><span class="line"></span><br><span class="line">time是可选项，用于设置动画周期。</span><br><span class="line"></span><br><span class="line">offsetX 和 offsetY定义像素级的偏移量，所以你可以滚动到元素并且加上特别的偏移量。但并不仅限于此。如果把这两个参数设置为true，元素将会位于屏幕的中间。请参考例子 滚动到元素 example。</span><br><span class="line"></span><br><span class="line">easing参数和scrollTo方法里的一样。</span><br></pre></td></tr></table></figure></p>
-<pre><code>3.4、 这个方法结合初始化的全局对象 一般这样使用: 初始化全局对象.scrollToElement(this);
-</code></pre>
+        <h3 id="iScroll"><a href="#iScroll" class="headerlink" title="iScroll"></a>iScroll</h3><p><a href="https://www.kancloud.cn/kancloud/iscroll-api/77883" target="_blank" rel="noopener">iScroll官网</a><br>1、 先把原生的滚动条效果 隐藏掉  也就是把 overflow: scroll; 改成 overflow: hidden;</p>
+<p>2、 必须等标签都渲染生成了 再去做初始化 否则没有效果<br>因为: 有了标签才有高度 才能调用滚动效果 图片 不一样 有标签结构了 不一定马上就有高度 因为内容还没有请求回来 图片标签 有内容了 才有高度 图片请求回来了 有一点高度了 但是并不是全部高度 </p>
+<p>3、 为解决图片加载请求的bug 采用: img.onload 事件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;.right img&quot;).on(&quot;load&quot;,function ()&#123;</span><br><span class="line">    初始化: var rightImg = new IScroll(&quot;.right_content&quot;);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>以上的案例有大的问题存在 就是每请求一张图片 就会执行一次初始化 反复初始化会浪费性能<br>怎么才能实现: 请求图片的最后一张完毕后 再初始化呢？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">获取到所有的图片长度</span><br><span class="line">var numImgs = $(&quot;.right img&quot;).length;</span><br><span class="line"></span><br><span class="line">$(&quot;.right img&quot;).on(&quot;load&quot;,function()&#123;</span><br><span class="line">    numImgs--;</span><br><span class="line">    判断: 当numImgs的索引为0时 肯定就是最后一张图片</span><br><span class="line">    if(numImgs == 0) &#123;</span><br><span class="line">       初始化: var rightImg = new IScroll(&quot;.right_content&quot;); </span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>4、 点击当前标签 往上置顶<br>需要结合iScrool来实现<br>也就是拿到刚刚初始化滚动标签的对象 ， 所以这个对象必须做全局的对象<br>主要用到下面的方法</p>
+<p><code>scrollToElement(el, time, offsetX, offsetY, easing)</code></p>
+<p>这是一个很有用的方法，你会喜欢它的。</p>
+<p>在这个方法中只有一个强制的参数就是el。传递一个元素或者一个选择器，iScroll将尝试滚动到这个元素的左上角位置。</p>
+<p>time是可选项，用于设置动画周期。</p>
+<p>offsetX 和 offsetY定义像素级的偏移量，所以你可以滚动到元素并且加上特别的偏移量。但并不仅限于此。如果把这两个参数设置为true，元素将会位于屏幕的中间。请参考例子 滚动到元素 example。</p>
+<p>easing参数和scrollTo方法里的一样。</p>
+<p>5、 这个方法结合初始化的全局对象 一般这样使用: 初始化全局对象.scrollToElement(this);</p>
+
       
     </div>
     
