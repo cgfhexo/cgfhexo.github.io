@@ -246,253 +246,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/24/jquery/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="My new chen">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CGFeng">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/24/jquery/" itemprop="url">jquery</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-24T03:34:43+08:00">
-                2019-02-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/jquery/" itemprop="url" rel="index">
-                    <span itemprop="name">jquery</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="jquery介绍"><a href="#jquery介绍" class="headerlink" title="jquery介绍"></a>jquery介绍</h3><pre><code>jquery最大的价值就是兼容性好
-主要使用于pc端
-</code></pre><h3 id="查看网站是否使用jquery"><a href="#查看网站是否使用jquery" class="headerlink" title="查看网站是否使用jquery"></a>查看网站是否使用jquery</h3><pre><code>window.$
-</code></pre><h3 id="获取网站所使用的jquery的版本"><a href="#获取网站所使用的jquery的版本" class="headerlink" title="获取网站所使用的jquery的版本"></a>获取网站所使用的jquery的版本</h3><pre><code>window.$.fn.jquery
-</code></pre><h3 id="jquery的入口函数"><a href="#jquery的入口函数" class="headerlink" title="jquery的入口函数"></a>jquery的入口函数</h3><pre><code>$( function () {} )  等同于 js的window.onload = function () {}
-</code></pre><h3 id="jquery的事件类型"><a href="#jquery的事件类型" class="headerlink" title="jquery的事件类型"></a>jquery的事件类型</h3><pre><code>$(&quot;div&quot;).click(  function (){} )  点击
-$(&quot;div&quot;).hide(1000)  隐藏 参数 - 隐藏的时间
-$(&quot;div&quot;).show( 1000 ) 显示
-$(&quot;div&quot;).mouseover() 鼠标移入
-$(&quot;div&quot;).mouseout() 鼠标移出
-$(&quot;div&quot;).hover(function(){} , function (){})  代表着移入与移出 - 第一个函数代表移入 第二个代表移出
-</code></pre><h3 id="注册事件"><a href="#注册事件" class="headerlink" title="注册事件"></a>注册事件</h3><p> <strong> 当值发生改变时触发的函数 </strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.change( function()&#123;&#125; ) </span><br><span class="line">.change( function()&#123;</span><br><span class="line">    console.log(123)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<p><strong> 循环遍历 </strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.each()&#123; function &#125; 循环遍历 获取一个总值</span><br><span class="line">    // 商品总价</span><br><span class="line">    var sum = 0;</span><br><span class="line">    $(&apos;.num_price&apos;).each(function (i) &#123;</span><br><span class="line">    var val = Number($(this).text());</span><br><span class="line">    sum += val;</span><br><span class="line">    console.log(sum);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p><strong> 文档加载后 激活函数 </strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(document).ready(function () &#123;&#125;)  文档加载后 激活函数</span><br><span class="line">$(document).raady( function ()&#123;</span><br><span class="line">    console.log(123)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<h3 id="jquery选择器"><a href="#jquery选择器" class="headerlink" title="jquery选择器"></a>jquery选择器</h3><pre><code>1 $(&quot;div&quot;) 属性选择器
-2 $(&quot;.div&quot;) 类选择器
-3 $(&quot;#div&quot;) id选择器
-4 $(&quot;div:eq(0)&quot;) 伪类选择器 - 索引
-4.1 $(&quot;li:even&quot;) 伪类选择器 - 偶数
-5 $(&apos;[type=&quot;button&quot;]&apos;) 
-6 $(&quot;:disabled&quot;) 获取到被禁用的元素
-7 $(&quot;.father .son&quot;) 获取到子元素.son
-7.1 $(&quot;.father&quot;).children(&quot;.son&quot;) 取到子元素.son
-8 $(&quot;.btn1,.btn2&quot;)  并集选择器 同时获取到两个元素
-</code></pre><h3 id="load-事件"><a href="#load-事件" class="headerlink" title="load 事件"></a>load 事件</h3><pre><code>** 原生js window.onload 事件 **
-** 执行时机: 必须等待网页中所有内容都加载完毕后(包括图片)才能执行 **
-** 执行个数: 只能执行一个window.onload **
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">window.onload = function () &#123;</span><br><span class="line">    alert(&quot;test1&quot;);</span><br><span class="line">&#125;</span><br><span class="line">window.onload = function () &#123;</span><br><span class="line">    alert(&quot;test2&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 输出结果只会得到 test2</span><br><span class="line">// 特别注意: 想onload事件之类的 都是使用匿名函数 即：window.onload = function () &#123;&#125; 这种形式的才是在页面加载完成后执行</span><br></pre></td></tr></table></figure>
-
-
-** jQ中 ready() 方法 **
-** 说明: 在dom载入就绪能够读取并且操纵时立即调用你所绑定的函数, 可以极大提高web应用程序的相应速度 **
-** 执行时机: 网页中所有dom结构绘制完毕后就执行 可能dom元素关联的东西没有加载完 **
-** 编辑个数: 能同时编写多个 **
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$(document).ready(function ()&#123;</span><br><span class="line">    alert(&quot;hello1&quot;);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">$(document).ready(function ()&#123;</span><br><span class="line">    alert(&quot;hello2&quot;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// 结果： 两个都输出</span><br><span class="line">// 简写:</span><br><span class="line">$(function ()&#123;</span><br><span class="line">    alert(&quot;hello world&quot;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-** jQ中的 load() 事件 **
-** 触发时机: 网页中所有的内容都加载完毕后才执行 / 会等到页面所有内容加载完毕后才会触发 **
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$(window).load(function ()&#123;</span><br><span class="line">    alert(&quot;test1&quot;);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">$(window).load(function ()&#123;</span><br><span class="line">    alert(&quot;test2&quot;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// 代码会再页面所有内容加载完成后按照先后顺序执行</span><br><span class="line">// 注意： 另外需要注意一点，由于在$(document).ready()方法内注册的事件，只要DOM就绪就会被执行，因此可能此时元素的关联文件未下载完。例如与图片有关的HTML下载完毕，并且已经解析为DOM树了，但很可能图片还未加载完毕，所有例如图片的高度和宽度这样的属性此时不一定有效。要解决这个问题，可以使用jQuery中另一个页面加载的方法--load()方法。load()方法会在元素的onload事件中绑定一个处理函数。如果处理函数绑定给window对象，则会在所有内容(包括窗口，框架，对象和图像等)加载完毕后触发，如果处理函数绑定在元素上，则会在元素的内容加载完毕后触发</span><br><span class="line">// 具体调用哪个函数，根据参数而定。</span><br><span class="line"></span><br><span class="line">$(&quot;img&quot;).load(function() &#123;</span><br><span class="line">    $(&quot;div&quot;).text(&quot;图像已加载&quot;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">$(&quot;button&quot;).click(function() &#123;</span><br><span class="line">    $(&quot;div&quot;).load(&quot;demo_ajax_load.txt&quot;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-</code></pre><h3 id="jquery的属性方法"><a href="#jquery的属性方法" class="headerlink" title="jquery的属性方法"></a>jquery的属性方法</h3><pre><code>控制(修改)css的样式  -  以传入一个{}大括号对象的形式作为参数 里面的属性值为 键值对 就可修改多个属性值
-    $(&quot;div&quot;).css( { width:200, height: 200, backgroundColor: &quot;pink&quot; } )
-
-获取目标元素的某一个值 并且弹出 - 如果只传入一个属性值 就是获取该属性的值
-     var width =  $(&quot;div&quot;).css( &quot;width&quot; );
-     alert( width );
-
- 添加css类 - 添加的css类 不需要添加. 或者# 并且可以添加多个类 只要空格隔开就行
-    $(&quot;div&quot;).addClass(&quot;box&quot;);
-
- 移除css类
-    $(&quot;div&quot;).removeClass(&quot;box&quot;);
-
-检测是否添加了css类 - 有则返回true 没有则返回false
-    $(&quot;div&quot;).hasClass(&quot;box&quot;);
-
-切换css类 - 原理：添加类 / 移除类 - 可同时添加多个类或移除多个类
-    $(&quot;div&quot;).toggleClass(&quot;box&quot;);
-
-.eq(索引值) 索引 - 获取到索引为几的元素
-    $(&quot;div&quot;).eq(0).addClass(&quot;box&quot;);  当有两个div时 只给第一个div添加box样式
-
-$(this)代表当前
-
-.siblings()选中兄弟元素 使用siblings实现jq排他效果
-
-    &lt;body&gt;
-        (button{$})*5   添加5个button元素
-    &lt;/body&gt;
-
-    jq入口函数
-    $(function () {
-        注册事件
-        $(&quot;button&quot;).click(function (){
-        $(this) 代表当前
-        $(this).css( {backgroundColor: &quot;pink&quot;} );
-        .siblings() 只会选中兄弟元素
-        $(this).siblings().css( {backgroundColor: &quot;&quot;} )
-    })
-  })
-
-.parent() 父级关系 通过函数形式查找父级
-    $(this).parent().parent() - 找到当前元素的父级的父级
-
-.parents( &quot;body/html&quot; ) 祖先 - 通过函数的形式查找到祖先 - 需要写入查找的祖先值
-
-.children() 子级 - 通过函数的形式获取子级元素
-    $(&quot;div&quot;).children(&quot;.son&quot;)  当有两个子元素时 可直接输入需要获取的子元素
-
-.index() 索引 - 通过函数的形式获取到索引值
-    $(this).index(); - 获取当前元素的索引值
-
-.appent() 方法在被选元素的结尾（仍然在内部）插入指定内容
-
-.remove() 删除/移除对应的某一项
-</code></pre><h3 id="jQuery中ajax-get-post请求的语法"><a href="#jQuery中ajax-get-post请求的语法" class="headerlink" title="jQuery中ajax get/post请求的语法"></a>jQuery中ajax get/post请求的语法</h3><p><strong> 作用: 异步的动态网站交互应用技术 无刷新的情况下 实现数据的交互 </strong><br><strong> jQuery提供Ajax封装 </strong><br>$.get() 以GET方式发起Ajax请求 只能发送get请求  只有4个参数<br>1 - url 必填项 规定将请求发送到那个URL<br>2 - data 可选 规定连同请求发送到服务器的数据 参数的意思<br>3 - success 可选规定当请求成功时运行的函数<br>4 - dataType 可选 规定预计的服务器响应的数据类型 默认的jQuery会智能判断<br>$.post() 以POST方式发起ajax请求 只能发送post请求 只有4个参数</p>
-<hr>
-<hr>
-<p><strong> jQuery中的ajax </strong><br><strong> $.ajax({}) 可配置的方式发起Ajax请求 </strong><br>1 - url 接口地址<br>2 - type 请求方式<br>3 - timeout 设定请求超时时间 就是设置一个默认请求的时间 超过时间 数据还没回来 就不要了 要是请求成功就响应success 不成功就响应error<br>4 - dataType 告诉底层$.ajax将返回来的数据以何种格式解析 人为的设置底层$.ajax用哪一种语法解析 支持 json  xml  jsonp<br>5 - data 发送请求数据 参数的意思<br>6 - beforeSend:function () { return false } 请求发起前调用 before：在…之前 send：发送 用于：在发送之前需要做的业务逻辑,用于页面中数据的判断 return false 会阻止请求的发送<br>7 - success 成功响应后调用的函数 一般用于渲染页面<br>8 - error 错误响应时调用<br>9 - compleat 响应完成时的响应的函数  无论成功还是失败 一般用于数据的初始化</p>
-<h3 id="zepto请求方式"><a href="#zepto请求方式" class="headerlink" title="zepto请求方式"></a>zepto请求方式</h3><p>$.get(“url”,”data”,成功的回调);</p>
-<p>$.post(“url”,”data”,成功的回调);</p>
-<p>$.get(“url”,”data”,function (result){<br>    console.log(result);<br>})</p>
-<h3 id="attr"><a href="#attr" class="headerlink" title=".attr()"></a>.attr()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.attr() 能获取到 HTML标签中data-定义的值</span><br><span class="line">HTML:</span><br><span class="line">&lt;img data-src=”../../img” src=”../../img” /&gt;</span><br><span class="line">.attr(“data-src”)  =&gt; 得到data-src中定义的值</span><br><span class="line">.attr(“src”,”srcData”)  =&gt; 传入两个值就是把srcData的值替换/赋值原来的src的值</span><br></pre></td></tr></table></figure>
-<h3 id="动态事件"><a href="#动态事件" class="headerlink" title="动态事件"></a>动态事件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">动态后台事件时 需要使用监听来绑定事件</span><br><span class="line">$(“.index .list”).on(“click”,”.unit”,function ()&#123;</span><br><span class="line">console.log(123)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h3 id="form-gt-提交时获取input-name-值"><a href="#form-gt-提交时获取input-name-值" class="headerlink" title="form -&gt; 提交时获取input - name 值"></a>form -&gt; 提交时获取input - name 值</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">form 表单里面 拿到input标签定义的name值</span><br><span class="line">var data = $(&apos;#form&apos;).serialize();  // 这里的.serialize() 拿到的整个form表单的name 不是单一的</span><br><span class="line">search 自动提升框</span><br><span class="line">autocomplete = “on ” // 默认，启用自动完成 </span><br><span class="line">autocomplete = “off” // 规定禁用自动完成功能</span><br></pre></td></tr></table></figure>
-<h3 id="trim"><a href="#trim" class="headerlink" title="trim()"></a>trim()</h3><p><strong> 去掉值两边的空格 </strong><br><strong> 一般用于获取input中的value值 </strong><br><code>var getText = $(&quot;btn&quot;).val().trim();</code></p>
-<h3 id="removeAttr-“disabled”-去除一个属性"><a href="#removeAttr-“disabled”-去除一个属性" class="headerlink" title=".removeAttr(“disabled”)  去除一个属性"></a>.removeAttr(“disabled”)  去除一个属性</h3><p><code>$.(&quot;btn&quot;).removeAttr(&quot;disabled&quot;);</code></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/24/Github项目上传/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1344,7 +1097,7 @@ git config user.email 查看邮箱
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1355,7 +1108,7 @@ git config user.email 查看邮箱
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1366,7 +1119,7 @@ git config user.email 查看邮箱
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
